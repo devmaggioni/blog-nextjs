@@ -1,10 +1,10 @@
-import { Container, Title } from "./styles"
+import { Container, Image } from "./styles"
 
 function Header(){
 	return (
 		<>
 			<Container>
-				<Title>Undead Cat</Title>
+				<Image src='/images/UndeadCat.png' alt="Undead Cat logo do blog"/>
 			</Container>
 		</>
 	)

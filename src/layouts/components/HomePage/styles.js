@@ -11,7 +11,7 @@ flex-wrap: wrap;
 justify-content: center;
 align-items: center;
 min-height: 80vh;
-padding-top: 1rem;
+padding-top: 5rem;
 padding-bottom: 30%;
 `
 

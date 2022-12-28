@@ -1,8 +1,6 @@
 import { Post, connectDB } from "../../../lib/mongodb"
 
 async function handler(req, res) {
-res.status(200).send("nada por aqui...")
-/*
 	
 	if (req.method !== "POST") return res.status(405).json({ status: "error", msg: "method not allowed" })
 	
@@ -29,8 +27,12 @@ res.status(200).send("nada por aqui...")
 			.replaceAll("<p", "<p class=\"post\"")
 			.replaceAll("<a", "<a class=\"post\"")
 			.replaceAll("<img", "<img class=\"post\"")
+			.replaceAll("<code", '<code class="post"')
 			.replaceAll("<ul", "<ul class=\"post\"")
 			.replaceAll("<ol", "<ol class=\"post\"")
+			.replaceAll("<iframe", '<div class="iframeContainer"><iframe')
+			.replaceAll("</iframe>", "</iframe></div>")
+			.replaceAll('"code"', '"code" contenteditable=true')
   	
   	const post = new Post({
   	id,
@@ -52,7 +54,4 @@ res.status(200).send("nada por aqui...")
   
 }
 
-export default connectDB(handler)*/
-
-}
-export default handler
+export default connectDB(handler)

@@ -1,8 +1,6 @@
 import { Post, connectDB } from "../../../lib/mongodb"
 
 async function handler(req, res) {
-res.status(200).send("nada por aqui...")
-/*
 	
 	if (req.method !== "DELETE") return res.status(405).json({ status: "error", msg: "method not allowed" })
 	
@@ -26,6 +24,4 @@ res.status(200).send("nada por aqui...")
 	
 }
 
-export default connectDB(handler)*/
-}
-export default handler
+export default connectDB(handler)
