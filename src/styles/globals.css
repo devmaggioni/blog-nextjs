@@ -1,0 +1,13 @@
+* {
+	font-size: 10px;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	font-family: Sans-Serif;
+	color: white;
+	word-break: break-all;
+}
+
+body {
+background-color: black;
+}

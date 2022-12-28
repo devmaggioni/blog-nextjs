@@ -1,0 +1,42 @@
+
+h1.post {
+ font-size: 2.4rem;
+ text-align: left;
+ margin-bottom: 1rem;
+}
+
+h2.post {
+ font-size: 2rem;
+ text-align: left;
+ margin-bottom: 1rem;
+}
+
+h3.post {
+ font-size: 1.6rem;
+ text-align: left;
+ margin-bottom: 1rem;
+}
+
+p.post {
+	font-size: 1.6rem;
+	text-align: left;
+	text-indent: 1rem;
+	margin-bottom: 1rem;
+}
+
+img.post {
+	width: 100%;
+	border: 1px solid black;
+	border-radius: 10px;
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
+
+strong {
+	font-size: 1.6rem;
+}
+
+a.post {
+	font-size: 1.6rem;
+	color: red;
+}
