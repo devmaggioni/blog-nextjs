@@ -1,6 +1,8 @@
 import { Post, connectDB } from "../../../lib/mongodb"
 
 async function handler(req, res) {
+res.status(200).send("nada por aqui...")
+/*
 	
 	if (req.method !== "DELETE") return res.status(405).json({ status: "error", msg: "method not allowed" })
 	
@@ -24,26 +26,6 @@ async function handler(req, res) {
 	
 }
 
-export default connectDB(handler)
-
-
-
-
-/*
-const id = req.query.id
-
-  const person = await Person.findOne({ _id: id })
-
-  if (!person) {
-    res.status(422).json({ message: 'Usuário não encontrado!' })
-    return
-  }
-
-  try {
-    await Person.deleteOne({ _id: id })
-
-    res.status(200).json({ message: 'Usuário removido com sucesso!' })
-  } catch (error) {
-    res.status(500).json({ erro: error })
-  }
-*/
+export default connectDB(handler)*/
+}
+export default handler
