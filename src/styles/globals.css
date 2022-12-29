@@ -10,3 +10,41 @@
 body {
 background-color: black;
 }
+
+.appContainer {
+width: 100%;
+min-height: 100vh;
+background-color: #151F3A;
+padding-bottom: 2rem;
+}
+
+#code {
+	white-space: nowrap;
+	overflow: scroll;
+	background-color: #292E49;
+	width: 70%;
+	margin-inline: auto;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	border-radius: 10px;
+	border: 1px solid white;
+}
+
+#code > p {
+	font-size: 1rem;
+	margin-bottom: 1rem;
+}
+
+.iframeContainer {
+	border: 1px solid black;
+	border-radius: 10px;
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	padding-top: 56.25%;
+	/* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}

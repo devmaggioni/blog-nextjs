@@ -33,7 +33,7 @@ export default function Home(){
   
 	return (
 		<>
-		<HomePage data={data.data}/>
+			<HomePage data={data.data}/>
 		</>
 	)
 	

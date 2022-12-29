@@ -21,15 +21,7 @@ async function handler(req, res) {
 	try {
   	
   	let newHtml = html
-			.replaceAll("<h1", "<h1 class=\"post\"")
-			.replaceAll("<h2", "<h2 class=\"post\"")
-			.replaceAll("<h3", "<h3 class=\"post\"")
-			.replaceAll("<p", "<p class=\"post\"")
-			.replaceAll("<a", "<a class=\"post\"")
 			.replaceAll("<img", `<img alt="${desc}" class=\"post\"`)
-			.replaceAll("<code", "<code class=\"post\"")
-			.replaceAll("<ul", "<ul class=\"post\"")
-			.replaceAll("<ol", "<ol class=\"post\"")
 			.replaceAll("<iframe", "<div class=\"iframeContainer\"><iframe")
 			.replaceAll("</iframe>", "</iframe></div>")
 			.replaceAll("\"code\"", "\"code\" contenteditable=true")

@@ -3,6 +3,8 @@ import urlencode from "urlencode"
 import { useRouter } from "next/router"
 import Head from "next/head"
 
+import postStyles from "../../../styles/Post.module.css"
+
 import { Background, Container, Article, Title, Desc, TagsContainer, Tag, Author, AuthorContainer } from "./styles"
 
 function PostPage({data}){
@@ -10,9 +12,6 @@ function PostPage({data}){
 	
 	return (
 		<>
-			<Head>
-				<title>{data.title}</title>
-			</Head>
 			<Background>
 				<Container>
 					<Title>{data.title}</Title>
@@ -24,7 +23,7 @@ function PostPage({data}){
 							}}>{tag}</Tag>
 						)}
 					</TagsContainer>
-					<Article>
+					<Article className={postStyles.post}>
 						{toHtml(urlencode.decode(data.html))}
 					</Article>
 					<hr/>
