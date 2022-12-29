@@ -27,12 +27,12 @@ async function handler(req, res) {
 			.replaceAll("<p", "<p class=\"post\"")
 			.replaceAll("<a", "<a class=\"post\"")
 			.replaceAll("<img", "<img class=\"post\"")
-			.replaceAll("<code", '<code class="post"')
+			.replaceAll("<code", "<code class=\"post\"")
 			.replaceAll("<ul", "<ul class=\"post\"")
 			.replaceAll("<ol", "<ol class=\"post\"")
-			.replaceAll("<iframe", '<div class="iframeContainer"><iframe')
+			.replaceAll("<iframe", "<div class=\"iframeContainer\"><iframe")
 			.replaceAll("</iframe>", "</iframe></div>")
-			.replaceAll('"code"', '"code" contenteditable=true')
+			.replaceAll("\"code\"", "\"code\" contenteditable=true")
   	
   	const post = new Post({
   	id,

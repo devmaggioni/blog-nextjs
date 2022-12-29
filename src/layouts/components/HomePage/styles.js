@@ -3,13 +3,13 @@ import theme from "../../../styles/theme"
 
 export const FlexContainer = styled.div`
 @media (min-width: 450px){
-	padding-top: 10rem;
-	padding-bottom: 10rem;
-}
+padding-top: 10rem;
+padding-bottom: 10rem;
 display: flex;
 flex-wrap: wrap;
 justify-content: center;
 align-items: center;
+}
 min-height: 80vh;
 padding-top: 5rem;
 padding-bottom: 30%;
@@ -17,10 +17,11 @@ padding-bottom: 30%;
 
 export const PostContainer = styled.div`
 @media (min-width: 450px){
-	margin-inline: 3rem;
+margin-inline: 3rem;
+display: inline-block;
 }
 position: relative;
-display: inline-block;
+margin-inline: auto;
 background-color: ${theme.colors.card};
 width: 90vw;
 max-width: 450px;
@@ -32,6 +33,7 @@ margin-bottom: 5rem;
 border: 1px solid black;
 border-radius: 10px;
 padding-bottom: 2rem;
+box-shadow: 1px 1px 10px #4E4376;
 `
 
 export const ImageContainer = styled.div`

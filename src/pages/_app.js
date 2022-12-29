@@ -21,18 +21,18 @@ export default function App( {
 	Component, pageProps
 }) {
 	return <>
-	<Head>
-		<meta charset="utf-8"></meta>
-	<title>UndeadCat Blog</title>
-	<link rel="shortcut icon" href="cat.ico" type="image/x-icon"/>
-		{/*<meta property="og:image" content="https://image.png" />*/}
-	<meta property="og:description" content="I developed this blog during a NextJs course.  It serves as learning." />
-	<meta property="og:title" content="Undead Cat Blog" />
-	</Head>
-<Container>
-		<Header />
-		<NavBar />
-		<Component {...pageProps} />
-		<Footer />
-	</Container> < />
+		<Head>
+			<meta charset="utf-8"></meta>
+			<title>UndeadCat Blog</title>
+			<link rel="shortcut icon" href="cat.ico" type="image/x-icon"/>
+			{/*<meta property="og:image" content="https://image.png" />*/}
+			<meta property="og:description" content="I developed this blog during a NextJs course.  It serves as learning." />
+			<meta property="og:title" content="Undead Cat Blog" />
+		</Head>
+		<Container>
+			<Header />
+			<NavBar />
+			<Component {...pageProps} />
+			<Footer />
+		</Container> < />
 }
