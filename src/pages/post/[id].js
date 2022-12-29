@@ -9,7 +9,7 @@ import {
 	PostPage
 } from "../../layouts"
 
-import Seo from "../../layouts/components/Seo"
+//import Seo from "../../layouts/components/Seo"
 
 function Post() {
 	const router = useRouter()
@@ -41,12 +41,12 @@ function Post() {
 	</p>
 
 	return (
-		<>
+		<>{/*
 			<Seo
 				title={"Undead Cat - " + (data.data.title)}
 				description={data.data.desc}
 				canonicalPath={"/post/" + (router.query.id)}
-			/>
+			/>*/}
 			<PostPage data={data.data} /> < />
 	)
 }
