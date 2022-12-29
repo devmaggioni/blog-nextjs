@@ -1,6 +1,7 @@
 import toHtml from "html-react-parser"
 import urlencode from "urlencode"
 import { useRouter } from "next/router"
+import Head from "next/head"
 
 import { Background, Container, Article, Title, Desc, TagsContainer, Tag, Author, AuthorContainer } from "./styles"
 
@@ -9,6 +10,9 @@ function PostPage({data}){
 	
 	return (
 		<>
+			<Head>
+				<title>{data.title}</title>
+			</Head>
 			<Background>
 				<Container>
 					<Title>{data.title}</Title>

@@ -39,13 +39,14 @@ box-shadow: 1px 1px 10px #4E4376;
 export const ImageContainer = styled.div`
 position: relative;
 width: 100%;
-height: 18rem;
+height: 16rem;
 overflow: hidden;
 border-bottom: 2px solid black;
 `
 
 export const Image = styled.img`
 width: 100%;
+min-height: 16rem;
 max-height: 40rem;
 `
 
