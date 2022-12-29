@@ -1,4 +1,46 @@
-import Head from "next/head"
+import {
+	NextSeo
+} from "next-seo"
+
+function Seo(){
+	return(
+		<NextSeo
+			title="Undead Cat Blog"
+			description="Meu blog pessoal."
+			canonical="https://blog-undeadcat.vercel.app"
+			robotsProps={ {
+				notranslate: true,
+			}}
+			additionalLinkTags={[{
+				rel: "shortcut icon",
+				href: "cat.ico",
+				type: "image/x-icon"
+			}]}
+			openGraph={ {
+		  	type: "website",
+				url: "https://blog-undeadcat.vercel.app",
+				title: "Undead Cat Blog",
+				description: "Meu blog pessoal.",
+				locale: "pt_BR",
+				images: [{
+					url: "https://blog-undeadcat.vercel.app/images/UndeadCat.png",
+					width: 3464,
+					height: 1546,
+					alt: "Undead Cat Blog",
+					type: "image/png",
+				},
+				],
+				siteName: "Undead Cat"
+			}}
+		/>
+	)
+}
+
+export default Seo
+
+
+
+/*import Head from "next/head"
 
 function Seo({ canonicalPath, title, description }){
 	return (
@@ -40,7 +82,7 @@ function Seo({ canonicalPath, title, description }){
 }
 
 export default Seo
-
+*/
 /*import {
 	NextSeo
 } from "next-seo"

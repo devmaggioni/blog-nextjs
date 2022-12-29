@@ -36,9 +36,7 @@ function Post() {
 	if (isLoading) return <p style={ { "margin-bottom": "100vh" }}>
  Loading...
 	</p>
-	if (!data) return <p>
- No profile data
-	</p>
+	if (!data) return <p style={{"margin-bottom": "100vh"}}> No profile data... </p>
 
 	return (
 		<>{/*
