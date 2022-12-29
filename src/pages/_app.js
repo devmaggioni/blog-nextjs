@@ -1,5 +1,6 @@
-// SEO
-import NextSeo from "../layouts/components/Seo"
+// Seo
+import Seo from "../layouts/components/Seo"
+import { useRouter } from "next/router"
 
 // styles
 import "../styles/globals.css"
@@ -22,10 +23,11 @@ padding-bottom: 2rem;
 export default function App( {
 	Component, pageProps
 }) {
+	let router = useRouter()
 	return (
 		<>
-			<NextSeo/>
 			<Container>
+			<Seo pathname={router.pathname}/>
 				<Header />
 				<NavBar />
 				<Component {...pageProps} />

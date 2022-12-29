@@ -32,7 +32,9 @@ export default function Home(){
 	if (!data) return <p> No profile data </p>
   
 	return (
+		<>
 		<HomePage data={data.data}/>
+		</>
 	)
 	
 }

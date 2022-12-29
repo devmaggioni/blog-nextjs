@@ -30,7 +30,9 @@ function Post(){
 	if (!data) return <p> No profile data </p>
   
 	return (
+		<>
 		<PostPage data={data.data}/>
+		</>
 	)
 }
 

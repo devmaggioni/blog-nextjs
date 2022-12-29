@@ -26,7 +26,7 @@ async function handler(req, res) {
 			.replaceAll("<h3", "<h3 class=\"post\"")
 			.replaceAll("<p", "<p class=\"post\"")
 			.replaceAll("<a", "<a class=\"post\"")
-			.replaceAll("<img", "<img class=\"post\"")
+			.replaceAll("<img", `<img alt="${desc}" class=\"post\"`)
 			.replaceAll("<code", "<code class=\"post\"")
 			.replaceAll("<ul", "<ul class=\"post\"")
 			.replaceAll("<ol", "<ol class=\"post\"")

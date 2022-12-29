@@ -2,12 +2,12 @@ import {
 	NextSeo
 } from "next-seo"
 
-function Seo(){
+function Seo({pathname}){
 	return(
 		<NextSeo
 			title="Undead Cat Blog"
 			description="Meu blog pessoal."
-			canonical="https://blog-undeadcat.vercel.app"
+			canonical={`https://blog-undeadcat.vercel.app${pathname || ""}`}
 			robotsProps={ {
 				notranslate: true,
 			}}
