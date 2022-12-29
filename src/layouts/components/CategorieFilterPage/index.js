@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-
+import PropTypes from "prop-types"
 import HomePage from "../HomePage"
 
 function CategorieFilter({data}){
@@ -15,6 +15,10 @@ function CategorieFilter({data}){
 			<HomePage data={filter}/>
 		</>
 	)
+}
+
+CategorieFilter.propTypes = {
+	data: PropTypes.any, 
 }
 
 export default CategorieFilter

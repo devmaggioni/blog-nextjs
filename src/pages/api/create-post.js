@@ -21,7 +21,7 @@ async function handler(req, res) {
 	try {
   	
   	let newHtml = html
-			.replaceAll("<img", `<img alt="${desc}" class=\"post\"`)
+			.replaceAll("<img", `<img alt="${desc}" class="post"`)
 			.replaceAll("<iframe", "<div class=\"iframeContainer\"><iframe")
 			.replaceAll("</iframe>", "</iframe></div>")
 			.replaceAll("\"code\"", "\"code\" contenteditable=true")

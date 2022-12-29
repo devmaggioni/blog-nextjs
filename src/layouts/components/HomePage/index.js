@@ -1,4 +1,7 @@
-import { useRouter } from "next/router"
+import {
+	useRouter
+} from "next/router"
+import PropTypes from "prop-types"
 
 import {
 	PostContainer,
@@ -8,49 +11,44 @@ import {
 	Title,
 	Desc,
 	DateAndAuthorContainer,
-	TagContainer,
-	Tag,
 	_Date,
 	Author,
 } from "./styles"
 
-function Layout({data}){
+function Layout( {
+	data
+}) {
 	const router = useRouter()
-	
+
 	return(
-		<FlexContainer>
-		
-			{
-				data.map((post) => 
-					<PostContainer onClick={
-						() => {
-							router.push(`/post/${post.id}`)
-						}
-					}>
-						<ImageContainer>
-							<Image alt={post.title} src={post.thumb}/>
-						</ImageContainer>
-					
-						<Title>{post.title}</Title>
-						{/*<TagContainer>
-							{post.tags.map(tag => <Tag >{tag}</Tag>)}
-						 </TagContainer>*/}
-						<Desc>{post.desc}</Desc>
-						
-						<DateAndAuthorContainer>
-							<Author>
-								{post.author}
-							</Author>
-							<_Date>
-								{new Date(post.timestamp).toLocaleString("pt-BR")}
-							</_Date>
-						</DateAndAuthorContainer>
-					</PostContainer>
-				)
-			}
-		
-		</FlexContainer>
+		<>
+			<FlexContainer>
+				{
+					data.map((post) =>
+						<PostContainer onClick={()=> router.push("/post/" + post.id)}>
+							<ImageContainer>
+								<Image alt={post.title} src={post.thumb} />
+							</ImageContainer>
+							<Title>{post.title}</Title>
+							<Desc>{post.desc}</Desc>
+							<DateAndAuthorContainer>
+								<Author>
+									{post.author}
+								</Author>
+								<_Date>
+									{new Date(post.timestamp).toLocaleString("pt-BR")}
+								</_Date>
+							</DateAndAuthorContainer>
+						</PostContainer>
+					)
+				}
+			</FlexContainer>
+		</>
 	)
+}
+
+Layout.propTypes = {
+	data: PropTypes.any,
 }
 
 export default Layout

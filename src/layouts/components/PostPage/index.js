@@ -1,8 +1,7 @@
 import toHtml from "html-react-parser"
 import urlencode from "urlencode"
 import { useRouter } from "next/router"
-import Head from "next/head"
-
+import PropTypes from "prop-types"
 import postStyles from "../../../styles/Post.module.css"
 
 import { Background, Container, Article, Title, Desc, TagsContainer, Tag, Author, AuthorContainer } from "./styles"
@@ -36,6 +35,10 @@ function PostPage({data}){
 			</Background>
 		</>
 	)
+}
+
+PostPage.propTypes = {
+	data: PropTypes.any, 
 }
 
 export default PostPage
