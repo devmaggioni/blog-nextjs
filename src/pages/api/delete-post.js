@@ -2,7 +2,7 @@ import { Post, connectDB } from "../../../lib/mongodb"
 
 async function handler(req, res) {
 	
-if (!process.env.ENABLE_POSTS) return res.status(500).json({ status: "error", msg: "acess denied" })
+	if (!process.env.ENABLE_POSTS) return res.status(500).json({ status: "error", msg: "acess denied" })
 	
 	if (req.method !== "DELETE") return res.status(405).json({ status: "error", msg: "method not allowed" })
 	

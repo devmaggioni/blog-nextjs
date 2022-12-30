@@ -26,24 +26,24 @@ function PostPage( {
 
 	return (
 		<>
-		<Head>
-		<title>{data.desc}</title>
-		</Head>
-		<Background>
+			<Head>
+				<title>{data.desc}</title>
+			</Head>
+			<Background>
 				<Container>
 					<Title>{data.title}</Title>
 					<Desc>{data.desc}</Desc>
 					<TagsContainer>
 						{
-			data.tags.map(tag =>
-			<Tag
-			onClick={()=> {
-				router.push("/categories/" + tag.toLowerCase().replace(/ /g, "-"))
-			}}>
-			<i class="fa-solid fa-tag" />
-			{tag.toLowerCase()}
-			</Tag>
-		)}
+							data.tags.map(tag =>
+								<Tag
+									onClick={()=> {
+										router.push("/categories/" + tag.toLowerCase().replace(/ /g, "-"))
+									}}>
+									<i className="fa-solid fa-tag" />
+									{tag.toLowerCase()}
+								</Tag>
+							)}
 					</TagsContainer>
 					<Article className={postStyles.post}>
 						{toHtml(urlencode.decode(data.html))}
@@ -51,17 +51,17 @@ function PostPage( {
 					<hr />
 					<AuthorContainer>
 						<Author>
-						<i class="fa-regular fa-pen-to-square"/>
+							<i className="fa-regular fa-pen-to-square"/>
 							{"por: " + data.author}
 						</Author>
 					</AuthorContainer>
 				</Container>
 			</Background> < />
-)
+	)
 }
 
 PostPage.propTypes = {
-data: PropTypes.any,
+	data: PropTypes.any,
 }
 
 export default PostPage

@@ -1,28 +1,27 @@
-import Link from "next/link"
 import { Container, Main } from "./styles"
 
 function CategoriesPage(){
 	return (
 		<Container>
-		<Main>
-		<ul>
+			<Main>
+				<ul>
 		
-		<li>
-		<a href="https://github.com/devmaggioni">
-	  <i class="fa-brands fa-github"/>
+					<li>
+						<a href="https://github.com/devmaggioni">
+						<i className="fa-brands fa-github"/>
 		GitHub</a>
-		</li>
+					</li>
 		
-		<li>
-		<a href="https://t.me/devUndeadCat">
-		<i class="fa-brands fa-telegram"/>
+					<li>
+						<a href="https://t.me/devUndeadCat">
+							<i className="fa-brands fa-telegram"/>
 		Telegram</a>
-		</li>
+					</li>
 		
-		</ul>
-		</Main>
+				</ul>
+			</Main>
 		</Container>
-		)
+	)
 }
 export default CategoriesPage
 

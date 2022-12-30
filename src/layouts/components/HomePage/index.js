@@ -33,11 +33,11 @@ function Layout( {
 							<Desc id="desc">{post.desc}</Desc>
 							<DateAndAuthorContainer>
 								<Author>
-<i class="fa-regular fa-pen-to-square"/>
+									<i className="fa-regular fa-pen-to-square"/>
 									{post.author}
 								</Author>
 								<_Date>
-<i class="fa-regular fa-clock"/>
+									<i className="fa-regular fa-clock"/>
 									{new Date(post.timestamp).toLocaleString("pt-BR")}
 								</_Date>
 							</DateAndAuthorContainer>

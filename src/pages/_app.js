@@ -12,7 +12,7 @@ export default function App( {
 }) {
 	return (
 		<>
-		<Seo/>
+			<Seo/>
 			<div className="appContainer">
 				<Header />
 				<NavBar />
