@@ -4,6 +4,7 @@ import {
 	useRouter
 } from "next/router"
 import PropTypes from "prop-types"
+import Head from "next/head"
 import postStyles from "../../../styles/Post.module.css"
 
 import {
@@ -25,6 +26,9 @@ function PostPage( {
 
 	return (
 		<>
+		<Head>
+		<title>{data.desc}</title>
+		</Head>
 		<Background>
 				<Container>
 					<Title>{data.title}</Title>

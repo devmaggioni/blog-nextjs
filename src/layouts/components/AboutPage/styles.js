@@ -8,6 +8,7 @@ padding-top: 10rem;
 
 export const Main = styled.main`
 width: 70vw;
+max-width: 400px;
 background-color: ${theme.colors.card};
 margin-inline: auto;
 border: 1px solid black;
