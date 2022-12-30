@@ -7,7 +7,7 @@ function Seo(){
 		<NextSeo
 			title="Undead Cat Blog"
 			description="Meu blog pessoal."
-			canonical="https://blog-undeadcat.vercel.app"
+			canonical="https://undeadcat.tech"
 			robotsProps={ {
 				notranslate: true,
 			}}
@@ -23,12 +23,12 @@ function Seo(){
 			]}
 			openGraph={ {
 		  	type: "website",
-				url: "https://blog-undeadcat.vercel.app",
+				url: "https://undeadcat.tech",
 				title: "Undead Cat Blog",
 				description: "Meu blog pessoal.",
 				locale: "pt_BR",
 				images: [{
-					url: "https://blog-undeadcat.vercel.app/images/UndeadCat.png",
+					url: "https://undeadcat.tech/images/UndeadCat.png",
 					width: 3464,
 					height: 1546,
 					alt: "Undead Cat Blog",
@@ -66,9 +66,9 @@ function Seo({ canonicalPath, title, description }){
 			
 			<meta name="og:type" content="website" />
 		
-			<meta property="og:image" content="https://blog-undeadcat.vercel.app/images/UndeadCat.png" />
+			<meta property="og:image" content="https://undeadcat.tech/images/UndeadCat.png" />
 			
-			<meta property="og:image:alt" content="blog-undeadcat.vercel.app - Meu blog NextJs" />
+			<meta property="og:image:alt" content="undeadcat.tech - Meu blog NextJs" />
 			
 			<meta property="og:image:width" content="3464" />
 			
@@ -76,9 +76,9 @@ function Seo({ canonicalPath, title, description }){
 			
 			<meta property="og:locale" content="pt_BR" />
 			
-			<meta property="og:url" content="https://blog-undeadcat.vercel.app" />
+			<meta property="og:url" content="https://undeadcat.tech" />
 			
-			<link rel="canonical" href={`https://blog-undeadcat.vercel.app${canonicalPath || ""}`}/>
+			<link rel="canonical" href={`https://undeadcat.tech${canonicalPath || ""}`}/>
 			
 			<link rel="shortcut icon" href="cat.ico" type="image/x-icon" />
 			
@@ -97,7 +97,7 @@ function Seo({pathname}){
 		<NextSeo
 			title="Undead Cat Blog"
 			description="Meu blog pessoal."
-			canonical={`https://blog-undeadcat.vercel.app${pathname || ""}`}
+			canonical={`https://undeadcat.tech${pathname || ""}`}
 			robotsProps={ {
 				notranslate: true,
 			}}
@@ -108,12 +108,12 @@ function Seo({pathname}){
 			}]}
 			openGraph={ {
 		  	type: "website",
-				url: "https://blog-undeadcat.vercel.app",
+				url: "https://undeadcat.tech",
 				title: "Undead Cat Blog",
 				description: "Meu blog pessoal.",
 				locale: "pt_BR",
 				images: [{
-					url: "https://blog-undeadcat.vercel.app/images/UndeadCat.png",
+					url: "https://undeadcat.tech/images/UndeadCat.png",
 					width: 3464,
 					height: 1546,
 					alt: "Undead Cat Blog",
