@@ -5,10 +5,15 @@
 	font-family: Sans-Serif;
 	color: white;
 	word-break: break-all;
+text-decoration: none;
 }
 
 body {
 background-color: black;
+}
+
+i {
+	margin-right: 0.5rem;
 }
 
 .appContainer {

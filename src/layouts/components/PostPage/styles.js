@@ -21,6 +21,7 @@ border-radius: 10px;
 export const Title = styled.h1`
 font-size: 4rem;
 margin-bottom: 2rem;
+text-transform: capitalize;
 `
 export const Desc = styled.p`
 font-size: 1.4rem;
@@ -44,6 +45,7 @@ margin-right: 0.5rem;
 margin-bottom: 0.5rem;
 border: 0.5px solid white;
 border-radius: 5px;
+font-size: 0.8rem;
 `
 
 export const AuthorContainer = styled.div`

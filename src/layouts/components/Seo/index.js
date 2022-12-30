@@ -15,7 +15,12 @@ function Seo(){
 				rel: "shortcut icon",
 				href: "cat.ico",
 				type: "image/x-icon"
-			}]}
+			},
+			{
+				rel: "stylesheet",
+				href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+			},
+			]}
 			openGraph={ {
 		  	type: "website",
 				url: "https://blog-undeadcat.vercel.app",

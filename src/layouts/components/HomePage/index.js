@@ -30,12 +30,14 @@ function Layout( {
 								<Image alt={post.title} src={post.thumb} />
 							</ImageContainer>
 							<Title>{post.title}</Title>
-							<Desc>{post.desc}</Desc>
+							<Desc id="desc">{post.desc}</Desc>
 							<DateAndAuthorContainer>
 								<Author>
+<i class="fa-regular fa-pen-to-square"/>
 									{post.author}
 								</Author>
 								<_Date>
+<i class="fa-regular fa-clock"/>
 									{new Date(post.timestamp).toLocaleString("pt-BR")}
 								</_Date>
 							</DateAndAuthorContainer>

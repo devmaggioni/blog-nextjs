@@ -55,6 +55,7 @@ font-size: 2rem;
 margin-inline: 1.5rem;
 margin-top: 2.5rem;
 margin-bottom: 1rem;
+text-transform: capitalize;
 `
 
 export const Desc = styled.p`
@@ -63,6 +64,7 @@ text-align: justify;
 font-size: 1.4rem;
 margin-inline: 1.5rem;
 margin-bottom: 1rem;
+}
 `
 
 export const TagContainer = styled.div`
@@ -89,7 +91,7 @@ display: inline-block;
 
 export const Author = styled.p`
 display: inline-block;
-margin-right: 2rem;
+margin-right: 1rem;
 `
 
 export const DateAndAuthorContainer = styled.div`

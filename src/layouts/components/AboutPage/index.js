@@ -1,4 +1,33 @@
-import {
+import Link from "next/link"
+import { Container, Main } from "./styles"
+
+function CategoriesPage(){
+	return (
+		<Container>
+		<Main>
+		<ul>
+		
+		<li>
+		<a href="https://github.com/devmaggioni">
+	  <i class="fa-brands fa-github"/>
+		GitHub</a>
+		</li>
+		
+		<li>
+		<a href="https://t.me/devUndeadCat">
+		<i class="fa-brands fa-telegram"/>
+		Telegram</a>
+		</li>
+		
+		</ul>
+		</Main>
+		</Container>
+		)
+}
+export default CategoriesPage
+
+
+/*import {
 	Container,
 	Card,
 	Item
@@ -19,4 +48,4 @@ function AboutPage(){
 	)
 }
 
-export default AboutPage
+export default AboutPage*/
