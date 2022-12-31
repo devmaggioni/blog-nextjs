@@ -12,9 +12,13 @@ text-align: center;
 `
 
 export const Item = styled.li`
-line-height: 5rem;
+line-height: 4.5rem;
 display: inline-block;
 padding-inline: 1rem;
+:hover {
+transition: 0.5s;
+border-bottom: 2px solid white;
+}
 `
 
 export const LinkNormal = styled.a`

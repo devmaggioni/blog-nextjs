@@ -32,6 +32,7 @@ margin-bottom: 3rem;
 
 export const CommentContainer = styled.div`
 width: 80%;
+max-width: 400px;
 margin-inline: auto;
 `
 
@@ -43,6 +44,9 @@ border: 1.5px solid black;
 border-radius: 5px;
 background-color: #536976;
 margin-bottom: 1rem;
+:hover {
+	border: 2px solid white;
+}
 
 h3 {
 	font-size: 1.2rem;

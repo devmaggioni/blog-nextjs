@@ -25,7 +25,7 @@ function Layout( {
 			<FlexContainer>
 				{
 					data.map((post) =>
-						<PostContainer onClick={()=> router.push("/post/" + post.id)}>
+						<PostContainer onClick={()=> setTimeout(function(){router.push("/post/" + post.id)}, 500)}>
 							<ImageContainer>
 								<Image alt={post.title} src={post.thumb} />
 							</ImageContainer>

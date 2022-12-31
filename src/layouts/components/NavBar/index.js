@@ -1,26 +1,25 @@
-import Link from "next/link"
+import { useRouter } from "next/router"
 import { Container, Lista, Item, LinkNormal } from "./styles"
 
 function NavBar(){
+	const router = useRouter()
 	return (
 		<>
 			<Container>
 				<Lista>
-					<Item>
-						<Link href="/" legacyBehavior>
-							<LinkNormal>Home</LinkNormal>
-						</Link>
+				
+					<Item onClick={()=>router.push("/")}>
+						<LinkNormal>Home</LinkNormal>
 					</Item>
-					<Item>
-						<Link href="/categories" legacyBehavior>
-							<LinkNormal>Categorias</LinkNormal>
-						</Link>
+					
+					<Item onClick={()=>router.push("/categories")}>
+						<LinkNormal>Categorias</LinkNormal>
 					</Item>
-					<Item>
-						<Link href="/about" legacyBehavior>
-							<LinkNormal>Sobre</LinkNormal>
-						</Link>
+
+					<Item onClick={()=>router.push("/about")}>
+						<LinkNormal>Sobre</LinkNormal>
 					</Item>
+					
 				</Lista>
 			</Container>
 		</>

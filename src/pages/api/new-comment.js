@@ -21,7 +21,7 @@ async function handler(req, res) {
 		if (!id) return res.status(400).json({
 			status: "error", msg: "miss id parameters"
 		})
-		if (!text) res.redirect(301, "/post/" + id)
+		if (!text) return res.redirect(301, "/post/" + id)
 
 		let findPost = await Post.findOne({
 			id
@@ -30,7 +30,7 @@ async function handler(req, res) {
 		if (findPost) {
 			const timestamp = new Date().getTime()
 			const commentId = findPost.comments.length
-			const ip = IP.address().toString().replace(/[-.]/g, '')
+			const ip = IP.address().toString().replace(/[-.]/g, "")
 			const comment = {
 				id: commentId,
 				ip,
@@ -46,7 +46,7 @@ async function handler(req, res) {
 				id
 			}, findPost)
 			
-			res.redirect(301, "/post/" + id)
+			return res.redirect(301, "/post/" + id)
 			
 		} else {
 			res.status(422).json({

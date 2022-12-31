@@ -1,34 +1,27 @@
-import Link from "next/link"
+import { useRouter } from "next/router"
 import { Container, Main } from "./styles"
 
 function CategoriesPage(){
+	const router = useRouter()
 	return (
 		<Container>
 			<Main>
 				<ul>
 		
-					<li>
-						<Link legacyBehavior href="/categories/sem-categoria">
-							<a>Sem Categoria</a>
-						</Link>
+					<li onClick={()=>setTimeout(()=>{router.push("/categories/sem-categoria")}, 300)}>
+						<a>Sem Categoria</a>
 					</li>
 		
-					<li>
-						<Link legacyBehavior href="/categories/tecnologia">
-							<a>Tecnologia</a>
-						</Link>
+					<li onClick={()=>setTimeout(()=>{router.push("/categories/tecnologia")}, 300)}>
+						<a>Tecnologia</a>
 					</li>
 		
-					<li>
-						<Link legacyBehavior href="/categories/tutorial">
-							<a>Tutorial</a>
-						</Link>
+					<li onClick={()=>setTimeout(()=>{router.push("/categories/tutorial")}, 300)}>
+						<a>Tutorial</a>
 					</li>
 		
-					<li>
-						<Link legacyBehavior href="/categories/programação">
-							<a>Programação</a>
-						</Link>
+					<li onClick={()=>setTimeout(()=>{router.push("/categories/programação")}, 300)}>
+						<a>Programação</a>
 					</li>
 		
 				</ul>
@@ -37,44 +30,3 @@ function CategoriesPage(){
 	)
 }
 export default CategoriesPage
-
-
-/*import { Background, Container, Item, LinkNormal } from "./styles"
-
-function CategoriesPage(){
-	return (
-		<>
-			<Background>
-				<Container>
-
-					<Item>
-						<Link legacyBehavior href="/categories/sem-categoria">
-							<LinkNormal>Sem Categoria</LinkNormal>
-						</Link>
-					</Item>
-
-					<Item>
-						<Link legacyBehavior href="/categories/tecnologia">
-							<LinkNormal>Tecnologia</LinkNormal>
-						</Link>
-					</Item>
-
-					<Item>
-						<Link legacyBehavior href="/categories/tutorial">
-							<LinkNormal>Tutorial</LinkNormal>
-						</Link>
-					</Item>
-
-					<Item>
-						<Link legacyBehavior href="/categories/programação">
-							<LinkNormal>Programação</LinkNormal>
-						</Link>
-					</Item>
-
-				</Container>
-			</Background>
-		</>
-	)
-}
-
-export default CategoriesPage*/

@@ -1,21 +1,19 @@
 import { Container, Main } from "./styles"
+import { useRouter } from "next/router"
 
 function CategoriesPage(){
+	const router = useRouter()
 	return (
 		<Container>
 			<Main>
 				<ul>
 		
-					<li>
-						<a href="https://github.com/devmaggioni">
-							<i className="fa-brands fa-github"/>
-		GitHub</a>
+					<li onClick={()=>setTimeout(()=>{router.push("https://github.com/devmaggioni")}, 300)}>
+						<a><i className="fa-brands fa-github"/>GitHub</a>
 					</li>
-		
-					<li>
-						<a href="https://t.me/devUndeadCat">
-							<i className="fa-brands fa-telegram"/>
-		Telegram</a>
+					
+					<li onClick={()=>setTimeout(()=>{router.push("https://t.me/devUndeadCat")}, 300)}>
+						<a><i className="fa-brands fa-telegram"/>Telegram</a>
 					</li>
 		
 				</ul>
@@ -24,27 +22,3 @@ function CategoriesPage(){
 	)
 }
 export default CategoriesPage
-
-
-/*import {
-	Container,
-	Card,
-	Item
-} from "./styles"
-
-function AboutPage(){
-	return (
-		<Container>
-			<Card>
-				<Item onClick={()=>{
-					document.location = "https://github.com/devmaggioni"
-				}}>GitHub</Item>
-				<Item onClick={()=>{
-					document.location = "https://t.me/devUndeadCat"
-				}}>Telegram</Item>
-			</Card>
-		</Container>
-	)
-}
-
-export default AboutPage*/

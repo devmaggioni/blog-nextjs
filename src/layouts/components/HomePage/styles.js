@@ -20,6 +20,14 @@ export const PostContainer = styled.div`
 margin-inline: 3rem;
 display: inline-block;
 }
+:hover {
+border: 2px solid white;
+transition: 0.2s;
+img {
+	width: 105%;
+	transition: 0.5s;
+}
+}
 position: relative;
 margin-inline: auto;
 background-color: ${theme.colors.card};
