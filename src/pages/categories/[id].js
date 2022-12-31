@@ -17,7 +17,7 @@ export default function Home(){
 	useEffect(()=> {
 		if(!router.isReady) return
 		setLoading(true)
-		fetch("/api/getall", {
+		fetch("/api/fetch-all-posts", {
     	method: "post"
 		})
 			.then((res) => res.json())
