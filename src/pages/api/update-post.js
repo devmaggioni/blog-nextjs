@@ -53,8 +53,8 @@ async function handler(req, res) {
 			html: newHtml
 		}
 
-    const findPost = await Post.findOne({ id })
-    if (!findPost) return res.status(400).json({ status: "error", msg: "id not found in database" })
+		const findPost = await Post.findOne({ id })
+		if (!findPost) return res.status(400).json({ status: "error", msg: "id not found in database" })
     
 		await Post.updateOne({ id }, post)
 

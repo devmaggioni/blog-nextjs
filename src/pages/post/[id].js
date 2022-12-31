@@ -22,7 +22,7 @@ function Post() {
 	useEffect(()=> {
 		if (!router.isReady) return
 		setLoading(true)
-		fetch("/api/find-post?id=" + router.query.id, {
+		fetch("/api/fetch-post?id=" + router.query.id, {
 			method: "post"
 		})
 			.then((res) => res.json())

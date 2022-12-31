@@ -18,7 +18,7 @@
 
 .post p {
 	font-size: 1.4rem;
-	text-align: left;
+	text-align: justify;
 	text-indent: 1rem;
 	margin-bottom: 1rem;
 }
@@ -55,17 +55,17 @@
 }
 
 .post ol {
-margin-top: 2rem;
-margin-bottom: 2rem;
-padding-left: 0;
-list-style: inside;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	padding-left: 0;
+	list-style: inside;
 }
 
 .post ul {
-margin-top: 2rem;
-margin-bottom: 2rem;
-padding-left: 0;
-list-style: inside;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	padding-left: 0;
+	list-style: inside;
 }
 
 .post hr {

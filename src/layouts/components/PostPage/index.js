@@ -7,6 +7,7 @@ import PropTypes from "prop-types"
 import Head from "next/head"
 import postStyles from "../../../styles/Post.module.css"
 
+import Comments from "../Comments"
 import {
 	Background,
 	Container,
@@ -55,6 +56,7 @@ function PostPage( {
 							{"por: " + data.author}
 						</Author>
 					</AuthorContainer>
+					<Comments data={data}/>
 				</Container>
 			</Background> < />
 	)

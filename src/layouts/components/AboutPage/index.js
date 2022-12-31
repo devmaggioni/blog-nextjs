@@ -8,7 +8,7 @@ function CategoriesPage(){
 		
 					<li>
 						<a href="https://github.com/devmaggioni">
-						<i className="fa-brands fa-github"/>
+							<i className="fa-brands fa-github"/>
 		GitHub</a>
 					</li>
 		
