@@ -14,6 +14,7 @@ padding-inline: 1.5rem;
 padding-top: 1rem;
 margin-inline: auto;
 width: 85%;
+max-width: 800px;
 min-height: 40rem;
 border-radius: 10px;
 `
