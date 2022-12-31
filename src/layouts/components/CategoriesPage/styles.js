@@ -31,7 +31,7 @@ margin-inline: auto;
 border-radius: 5px;
 overflow: hidden;
 :hover{
-border: 2px solid white;
+border: 2px solid #F00000;
 }
 }
 

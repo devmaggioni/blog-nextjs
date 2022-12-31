@@ -16,7 +16,7 @@ async function handler(req, res) {
 	})
 
 	let {
-		id,
+		id: postId,
 		title,
 		desc,
 		author,
@@ -27,36 +27,37 @@ async function handler(req, res) {
 
 	const timestamp = new Date().getTime()
 	
-	if (!title || !desc || !author || !html || !thumb || !id) return res.status(400).json({
-		status: "error", msg: "some parameters were not inserted in the query"
+	if (!postId) return res.status(400).json({
+		status: "error", msg: "miss query id"
 	})
+	
+	if (postId.includes("http")) postId = postId.split("post/")[1]
 
 	try {
 
-		let newHtml = html
-			.replaceAll("<img", `<img alt="${desc}" class="post"`)
-			.replaceAll("<iframe", "<div class=\"iframeContainer\"><iframe")
-			.replaceAll("</iframe>", "</iframe></div>")
-			.replaceAll("\"code\"", "\"code\"  contenteditable=true")
+		let newHtml = undefined;
+		if (html) newHtml = html.replaceAll("<img", `<img alt="${desc}" class="post"`).replaceAll("<iframe", "<div class=\"iframeContainer\"><iframe").replaceAll("</iframe>", "</iframe></div>").replaceAll("\"code\"", "\"code\"  contenteditable=true")
 
-		desc = desc[0].toUpperCase() + desc.slice(1, desc.length)
-		author = capitalize(author)
-		
-		const post = {
-			id,
-			title,
-			desc,
-			timestamp,
-			author,
-			tags: tags ? JSON.parse(tags): ["sem categoria"],
-			thumb,
-			html: newHtml
-		}
+		desc = desc ? desc[0].toUpperCase() + desc.slice(1, desc.length) : undefined
+		author = author ? capitalize(author) : undefined
+		const newPostId = title ? `${timestamp}|${title.toLowerCase().replace(/[ ,:@#$_&+()*"'!?;:{}%]/g, "")}` : undefined
 
-		const findPost = await Post.findOne({ id })
+		const findPost = await Post.findOne({ id: postId })
 		if (!findPost) return res.status(400).json({ status: "error", msg: "id not found in database" })
     
-		await Post.updateOne({ id }, post)
+    const updatedPost = {
+			id: newPostId || postId,
+			title: title || findPost.title,
+			desc: desc || findPost.desc,
+			timestamp,
+			author: author || findPost.author,
+			tags: tags ? JSON.parse(tags) : findPost.tags,
+			thumb: thumb || findPost.thumb,
+			html: newHtml || findPost.html,
+			comments: findPost.comments
+		}
+    
+		await Post.updateOne({ id: postId }, updatedPost)
 
 		res.status(201).json({
 			status: "ok", msg: "post updated"

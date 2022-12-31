@@ -2,7 +2,6 @@ import {
 	Post,
 	connectDB
 } from "../../../lib/mongodb"
-import IP from "ip"
 
 async function handler(req, res) {
 
@@ -16,37 +15,35 @@ async function handler(req, res) {
 			name,
 			text
 		} = req.body
-		const { id } = req.query
+		const { id: postId } = req.query
 
-		if (!id) return res.status(400).json({
+		if (!postId) return res.status(400).json({
 			status: "error", msg: "miss id parameters"
 		})
-		if (!text) return res.redirect(301, "/post/" + id)
+		if (!text) return res.redirect(301, "/post/" + postId)
 
 		let findPost = await Post.findOne({
-			id
+			id: postId
 		})
 
 		if (findPost) {
 			const timestamp = new Date().getTime()
 			const commentId = findPost.comments.length
-			const ip = IP.address().toString().replace(/[-.]/g, "")
 			const comment = {
 				id: commentId,
-				ip,
-				name: name || "Unknow",
+				name: name || "Desconhecido",
 				text,
 				timestamp,
-				answers: []
+				replys: []
 			}
 			
 			findPost.comments.push(comment)
 			
 			await Post.updateOne({
-				id
+				id: postId
 			}, findPost)
 			
-			return res.redirect(301, "/post/" + id)
+			return res.redirect(301, "/post/" + postId)
 			
 		} else {
 			res.status(422).json({
@@ -56,7 +53,7 @@ async function handler(req, res) {
 
 	} catch(e) {
 		res.status(500).json({
-			status: "error", msg: e.stack
+			status: "error", msg: e.name
 		})
 	}
 

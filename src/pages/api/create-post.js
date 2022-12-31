@@ -9,6 +9,7 @@ function capitalize(e) {
 
 async function handler(req, res) {
 	
+	// crie uma variável de ambiente para criar/deletar posts
 	if (!process.env.ENABLE_POSTS) return res.status(500).json({ status: "error", msg: "acess denied" })
 
 	if (req.method !== "POST") return res.status(405).json({
@@ -25,7 +26,7 @@ async function handler(req, res) {
 	} = req.query
 
 	const timestamp = new Date().getTime()
-	const id = `${timestamp}|${title.toLowerCase().replace(/[ ,:@#$_&+()*"'!?;:{}%]/g, "")}`
+	const postId = `${timestamp}|${title.toLowerCase().replace(/[ ,:@#$_&+()*"'!?;:{}%]/g, "")}`
 
 	if (!title || !desc || !author || !html || !thumb) return res.status(400).json({
 		status: "error", msg: "some parameters were not inserted in the query"
@@ -34,16 +35,19 @@ async function handler(req, res) {
 	try {
 
 		let newHtml = html
-			.replaceAll("<img", `<img alt="${desc}" class="post"`)
+			.replaceAll("<img", `<img alt="${desc}"`)
 			.replaceAll("<iframe", "<div class=\"iframeContainer\"><iframe")
 			.replaceAll("</iframe>", "</iframe></div>")
 			.replaceAll("\"code\"", "\"code\"  contenteditable=true")
 
+    // primeira letra maiúscula 
 		desc = desc[0].toUpperCase() + desc.slice(1, desc.length)
+		
+		// capitalizar nome
 		author = capitalize(author)
 		
 		const post = new Post({
-			id,
+			id: postId,
 			title,
 			desc,
 			timestamp,

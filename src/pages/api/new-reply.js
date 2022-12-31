@@ -8,15 +8,15 @@ async function handler(req, res) {
 
 	try {
 
-		/*
 		if (req.method !== "POST") return res.status(405).json({
 			status: "error", msg: "method not allowed"
-		})*/
+		})
 
 		const {
 			postId,
 			commentId,
-			text
+			text,
+			name
 		} = req.query
 
 		if (!postId || !commentId || !text) return res.status(400).json({
@@ -30,23 +30,22 @@ async function handler(req, res) {
 
 		if (findPost) {
 			
-			// objeto de resposta
+			// reply comment 
 			const timestamp = new Date().getTime()
 			const ip = IP.address()
-			const comment = {
+			const reply = {
 				ip,
-				name: "Unknow",
+				name: name || "Desconhecido",
 				text,
-				timestamp,
-				answers: []
+				timestamp
 			}
 			
 			// adicionar a resposta ao comentário certo
 			findPost.comments.map((a, b)=>{
-				if (a.id == commentId) findPost.comments[b].answers.push(comment)
+				if (a.id == commentId) findPost.comments[b].replys.push(reply)
 			})
 			
-			// atualizar post no banco de dados
+			// atualizar post com o novo reply
 			await Post.updateOne({
 				id: postId
 			}, findPost)
@@ -63,7 +62,7 @@ async function handler(req, res) {
 
 	} catch(e) {
 		res.status(500).json({
-			status: "error", msg: e.stack
+			status: "error", msg: e.name
 		})
 	}
 

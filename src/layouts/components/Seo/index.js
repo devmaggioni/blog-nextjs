@@ -5,8 +5,8 @@ import {
 function Seo(){
 	return(
 		<NextSeo
-			title="Undead Cat Blog"
-			description="Meu blog pessoal."
+			title="Blog Undead Cat"
+			description="Blog sobre tecnologia, games e tutoriais"
 			canonical="https://undeadcat.tech"
 			robotsProps={ {
 				notranslate: true,
@@ -16,7 +16,7 @@ function Seo(){
 				href: "cat.ico",
 				type: "image/x-icon"
 			},
-			{
+			{ // font awesome
 				rel: "stylesheet",
 				href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
 			},
@@ -24,14 +24,14 @@ function Seo(){
 			openGraph={ {
 		  	type: "website",
 				url: "https://undeadcat.tech",
-				title: "Undead Cat Blog",
-				description: "Meu blog pessoal.",
+				title: "Blog Undead Cat",
+				description: "Blog sobre tecnologia, games e tutoriais",
 				locale: "pt_BR",
 				images: [{
-					url: "https://undeadcat.tech/images/UndeadCat.png",
-					width: 3464,
-					height: 1546,
-					alt: "Undead Cat Blog",
+					url: "https://undeadcat.tech/images/logo_low.png",
+					width: 1732,
+					height: 773,
+					alt: "Blog Undead Cat",
 					type: "image/png",
 				},
 				],

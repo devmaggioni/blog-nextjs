@@ -17,7 +17,7 @@ display: inline-block;
 padding-inline: 1rem;
 :hover {
 transition: 0.5s;
-border-bottom: 2px solid white;
+border-bottom: 2px solid #F00000;
 }
 `
 

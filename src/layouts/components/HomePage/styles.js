@@ -21,7 +21,7 @@ margin-inline: 3rem;
 display: inline-block;
 }
 :hover {
-border: 2px solid white;
+border: 2px solid #F00000;
 transition: 0.2s;
 img {
 	width: 105%;

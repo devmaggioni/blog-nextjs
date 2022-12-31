@@ -12,7 +12,7 @@ async function handler(req, res) {
 			findPost = findPost.reverse()
 			res.status(200).json({ status: "ok", data: findPost })
 		} else {
-			res.status(422).json({ status: "error", msg: "post not found" })
+			res.status(422).json({ status: "error", msg: "posts not found" })
 		}
 	
 	} catch(e) {
