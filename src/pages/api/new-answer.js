@@ -8,9 +8,10 @@ async function handler(req, res) {
 
 	try {
 
+/*
 		if (req.method !== "POST") return res.status(405).json({
 			status: "error", msg: "method not allowed"
-		})
+		})*/
 
 		const {
 			postId,
