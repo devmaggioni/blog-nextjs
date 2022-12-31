@@ -30,7 +30,7 @@ async function handler(req, res) {
 		if (findPost) {
 			const timestamp = new Date().getTime()
 			const commentId = findPost.comments.length
-			const ip = IP.address()
+			const ip = IP.address().toString().replace(/[-.]/g, '')
 			const comment = {
 				id: commentId,
 				ip,
