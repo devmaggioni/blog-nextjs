@@ -46,7 +46,7 @@ async function handler(req, res) {
 				id
 			}, findPost)
 			
-			res.status(308).redirect("https://undeadcat.tech/post/" + id)
+			return res.status(308).redirect("/post/" + id)
 			
 		} else {
 			res.status(422).json({
