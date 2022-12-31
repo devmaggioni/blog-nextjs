@@ -8,9 +8,9 @@ async function handler(req, res) {
 
 	try {
 
-		/*if (req.method !== "POST") return res.status(405).json({
+		if (req.method !== "POST") return res.status(405).json({
 			status: "error", msg: "method not allowed"
-		})*/
+		})
 
 		const {
 			name,
@@ -46,7 +46,7 @@ async function handler(req, res) {
 				id
 			}, findPost)
 			
-			res.status(302).redirect("/post/" + id)
+			res.status(200).send("<h1>COMENTÁRIO ADICIONADO</h1>")
 			
 		} else {
 			res.status(422).json({
