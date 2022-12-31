@@ -13,7 +13,7 @@ button {
 }
 #newComment input, textarea {
 	color: black;
-	width: 90%;
+	width: 100%;
 }
 #newComment textarea {
 	height: 5rem;

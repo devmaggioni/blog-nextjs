@@ -27,6 +27,7 @@ function PostPage({data}) {
 		<>
 	<Head>
 	<title>{data.title}</title>
+<link rel="canonical" href={"https://undeadcat.tech/post/" + data.id}/>
   </Head>
 	<Background>
 				<Container>
