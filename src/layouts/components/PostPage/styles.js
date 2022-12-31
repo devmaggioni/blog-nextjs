@@ -46,6 +46,9 @@ margin-bottom: 0.5rem;
 border: 0.5px solid white;
 border-radius: 5px;
 font-size: 0.8rem;
+i {
+	font-size: 0.8rem;
+}
 `
 
 export const AuthorContainer = styled.div`
