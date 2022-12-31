@@ -21,7 +21,7 @@ async function handler(req, res) {
 		if (!id) return res.status(400).json({
 			status: "error", msg: "miss id parameters"
 		})
-		if (!text) res.redirect(307, "/post/" + id)
+		if (!text) res.redirect(301, "/post/" + id)
 
 		let findPost = await Post.findOne({
 			id
@@ -46,7 +46,7 @@ async function handler(req, res) {
 				id
 			}, findPost)
 			
-			res.redirect(307, "/post/" + id)
+			res.redirect(301, "/post/" + id)
 			
 		} else {
 			res.status(422).json({
