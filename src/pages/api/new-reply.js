@@ -5,8 +5,6 @@ import {
 
 async function handler(req, res) {
 	
-	return res.status(200).json({ok:"ok"})
-
 	try {
 
 		if (req.method !== "POST") return res.status(405).json({
@@ -47,7 +45,7 @@ async function handler(req, res) {
 			// adicionar a resposta ao comentário certo
 			findPost.comments.map((a, b)=> {
 				if (!a.replys) {
-					logger.error("o objeto comments não pussui um array chamado replys")
+					console.error("o objeto comments não pussui um array chamado replys")
 					res.redirect(301, "/post/" + postId)
 				}
 				if (a.id == commentId) {
