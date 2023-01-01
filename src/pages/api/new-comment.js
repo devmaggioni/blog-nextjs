@@ -30,6 +30,7 @@ async function handler(req, res) {
 			const timestamp = new Date().getTime()
 			const commentId = findPost.comments.length
 			if (name && name.length > 15) name = name.slice(0, 15)
+			if (text.length > 450) text = text.slice(0, 450) + " (texto muito longo...)"
 			const comment = {
 				id: commentId,
 				name: name.trim() || "Desconhecido",
