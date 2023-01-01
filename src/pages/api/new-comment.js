@@ -31,7 +31,7 @@ async function handler(req, res) {
 			const commentId = findPost.comments.length
 			const comment = {
 				id: commentId,
-				name: name || "Desconhecido",
+				name: name.trim() || "Desconhecido",
 				text,
 				timestamp,
 				replys: []

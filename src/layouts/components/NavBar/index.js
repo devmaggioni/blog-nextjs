@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-import { Container, Lista, Item, LinkNormal } from "./styles"
+import { Container, Lista, Item, Text } from "./styles"
 
 function NavBar(){
 	const router = useRouter()
@@ -9,15 +9,15 @@ function NavBar(){
 				<Lista>
 				
 					<Item onClick={()=>router.push("/")}>
-						<LinkNormal>Home</LinkNormal>
+						<Text translate="no">Home</Text>
 					</Item>
 					
 					<Item onClick={()=>router.push("/categories")}>
-						<LinkNormal>Categorias</LinkNormal>
+						<Text translate="no">Categorias</Text>
 					</Item>
 
 					<Item onClick={()=>router.push("/about")}>
-						<LinkNormal>Sobre</LinkNormal>
+						<Text translate="no">Sobre</Text>
 					</Item>
 					
 				</Lista>

@@ -21,7 +21,7 @@ border-bottom: 2px solid #F00000;
 }
 `
 
-export const LinkNormal = styled.a`
+export const Text = styled.p`
 @media(min-width: 450px){
 font-size: 2rem;
 }

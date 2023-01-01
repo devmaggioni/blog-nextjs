@@ -35,7 +35,7 @@ async function handler(req, res) {
 
 	try {
 
-		let newHtml = undefined;
+		let newHtml = undefined
 		if (html) newHtml = html.replaceAll("<img", `<img alt="${desc}" class="post"`).replaceAll("<iframe", "<div class=\"iframeContainer\"><iframe").replaceAll("</iframe>", "</iframe></div>").replaceAll("\"code\"", "\"code\"  contenteditable=true")
 
 		desc = desc ? desc[0].toUpperCase() + desc.slice(1, desc.length) : undefined
@@ -45,7 +45,7 @@ async function handler(req, res) {
 		const findPost = await Post.findOne({ id: postId })
 		if (!findPost) return res.status(400).json({ status: "error", msg: "id not found in database" })
     
-    const updatedPost = {
+		const updatedPost = {
 			id: newPostId || postId,
 			title: title || findPost.title,
 			desc: desc || findPost.desc,

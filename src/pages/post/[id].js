@@ -37,7 +37,7 @@ function Post() {
  Loading...
 	</p>
 	if (!data) return <p style={{"margin-bottom": "100vh"}}> No profile data... </p>
-if (data.status === "error") return <p style={{"margin-bottom": "100vh"}}>Erro Interno: {data.msg}</p>
+	if (data.status === "error") return <p style={{"margin-bottom": "100vh"}}>Erro Interno: {data.msg}</p>
 
 	return (
 		<>{/*

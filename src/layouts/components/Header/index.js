@@ -4,7 +4,7 @@ function Header(){
 	return (
 		<>
 			<Container>
-				<Image src='/images/logo_low.png' alt="Undead Cat logo do blog"/>
+				<Image src='/images/logo_low.png' alt="logo do blog - Undead Cat"/>
 			</Container>
 		</>
 	)

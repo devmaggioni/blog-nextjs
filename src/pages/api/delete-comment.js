@@ -7,7 +7,7 @@ async function handler(req, res) {
 
 	try {
 		
-	if (!process.env.ENABLE_POSTS) return res.status(500).json({ status: "error", msg: "acess denied" })
+		if (!process.env.ENABLE_POSTS) return res.status(500).json({ status: "error", msg: "acess denied" })
 
 		if (req.method !== "DELETE") return res.status(405).json({
 			status: "error", msg: "method not allowed"
@@ -29,12 +29,12 @@ async function handler(req, res) {
 
 		if (!findPost) return res.status(422).json({status: "error", msg: "post not found"})
 			
-			findPost.comments.map((comment, i)=>{
-				if (comment.id == commentId) findPost.comments.splice(i, 1)
-			})
+		findPost.comments.map((comment, i)=>{
+			if (comment.id == commentId) findPost.comments.splice(i, 1)
+		})
 			
-			await Post.updateOne({ id: postId }, findPost)
-			res.status(200).json({ status: "ok", msg: "comment as be deleted" })
+		await Post.updateOne({ id: postId }, findPost)
+		res.status(200).json({ status: "ok", msg: "comment as be deleted" })
 
 	} catch(e) {
 		res.status(500).json({

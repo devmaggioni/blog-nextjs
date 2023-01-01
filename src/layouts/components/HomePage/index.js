@@ -30,9 +30,9 @@ function Layout( {
 								<Image alt={post.title} src={post.thumb} />
 							</ImageContainer>
 							<Title>{post.title}</Title>
-							<Desc id="desc">{post.desc}</Desc>
+							<Desc id="desc">{post.desc.length < 100 ?post.desc : post.desc.slice(0, 100) + "..."}</Desc>
 							<DateAndAuthorContainer>
-								<Author>
+								<Author translate="no">
 									<i className="fa-regular fa-pen-to-square"/>
 									{post.author}
 								</Author>

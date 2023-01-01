@@ -23,6 +23,7 @@ display: inline-block;
 :hover {
 border: 2px solid #F00000;
 transition: 0.2s;
+box-shadow: 2px 2px 15px #4E4376;
 img {
 	width: 105%;
 	transition: 0.5s;
@@ -33,15 +34,13 @@ margin-inline: auto;
 background-color: ${theme.colors.card};
 width: 90vw;
 max-width: 450px;
-height: 80vw;
-max-height: 400px;
 overflow: hidden;
 text-align: left;
 margin-bottom: 5rem;
 border: 1px solid black;
 border-radius: 10px;
 padding-bottom: 2rem;
-box-shadow: 1px 1px 10px #4E4376;
+box-shadow: 1px 1px 5px #4E4376;
 `
 
 export const ImageContainer = styled.div`
@@ -67,8 +66,12 @@ text-transform: capitalize;
 `
 
 export const Desc = styled.p`
+:first-letter {
+	text-transform: uppercase;
+}
+font-family: "Noto Sans Mono", Sans-Serif;
 display: inline-block;
-text-align: justify;
+text-align: left;
 font-size: 1.4rem;
 margin-inline: 1.5rem;
 margin-bottom: 1rem;
@@ -103,6 +106,7 @@ margin-right: 1rem;
 `
 
 export const DateAndAuthorContainer = styled.div`
+margin-top: 1rem;
 position: absolute;
 bottom: 0.5rem;
 left: 1.5rem;

@@ -12,7 +12,7 @@ async function handler(req, res) {
 	
 	try {
 	
-	  if (postId.includes("http")) postId = postId.split('post/')[1]
+	  if (postId.includes("http")) postId = postId.split("post/")[1]
 		const findPost = await Post.findOne({ id: postId })
 	
 		if (!findPost) {

@@ -16,7 +16,7 @@ import {
 	Desc,
 	TagsContainer,
 	Tag,
-	Author,
+	DateContainer,
 	AuthorContainer
 } from "./styles"
 
@@ -25,43 +25,44 @@ function PostPage({data}) {
 
 	return (
 		<>
-	<Head>
-	<title>{data.title}</title>
-  </Head>
-	<Background>
+			<Head>
+				<title>{data.title}</title>
+			</Head>
+			<Background>
 				<Container>
-					<Title>{data.title}</Title>
-					<Desc>{data.desc}</Desc>
+					<Title translate="no">{data.title}</Title>
+					<Desc translate="no">{data.desc}</Desc>
 					<TagsContainer>
 						{
-		data.tags.map(tag =>
-			<Tag
-				onClick={()=> {
-					router.push("/categories/" + tag.toLowerCase().replace(/ /g, "-"))
-				}}>
+							data.tags.map(tag =>
+								<Tag
+									translate="no"
+									onClick={()=> {
+										router.push("/categories/" + tag.toLowerCase().replace(/ /g, "-"))
+									}}>
 									<i className="fa-solid fa-tag" />
 									{tag.toLowerCase()}
 								</Tag>
-		)}
+							)}
 					</TagsContainer>
 					<Article className={postStyles.post}>
 						{toHtml(urlencode.decode(data.html))}
 					</Article>
 					<hr />
 					<AuthorContainer>
-						<Author>
-							<i className="fa-regular fa-pen-to-square" />
-							{"por: " + data.author}
-						</Author>
+						<p translate="no"><i className="fa-regular fa-pen-to-square" />{"por: " + data.author}</p>
 					</AuthorContainer>
+					<DateContainer>
+						<p><i className="fa-regular fa-clock"/>{"editado em: " + new Date(data.timestamp).toLocaleString("pt-BR")}</p>
+					</DateContainer>
 					<Comments data={data} />
 				</Container>
 			</Background> < />
-)
+	)
 }
 
 PostPage.propTypes = {
-data: PropTypes.any,
+	data: PropTypes.any,
 }
 
 export default PostPage

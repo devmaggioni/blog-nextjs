@@ -12,13 +12,13 @@ function Layout( {
 }) {
 	return (
 		<>
-		<Container>
+			<Container>
 				<Hr />
 				<Title>Comentários</Title>
 				<button onClick={
-			()=> {
-				(document.getElementById("newComment").style.display === "block") ? document.getElementById("newComment").style.display = "none": document.getElementById("newComment").style.display = "block" }
-			}>
+					()=> {
+						(document.getElementById("newComment").style.display === "block") ? document.getElementById("newComment").style.display = "none": document.getElementById("newComment").style.display = "block" }
+				}>
 	novo comentário
 				</button>
 				<WritingComment id="newComment">
@@ -26,39 +26,39 @@ function Layout( {
 						<div>
 							<label htmlFor="nome">Nome:</label>
 							<input type="text" id="nome" name="name" />
-			</div>
+						</div>
 						<div>
 							<label htmlFor="msg">Mensagem:</label>
 							<textarea id="msg" name="text"></textarea>
-			</div>
+						</div>
 
 						<div className="button">
 							<button type="submit">Enviar sua mensagem</button>
-			</div>
-		</form>
+						</div>
+					</form>
 				</WritingComment>
 				{
-		data.comments.map((comment)=>
-			<CommentContainer>
+					data.comments.map((comment)=>
+						<CommentContainer>
 							<Comment>
 								<h3>
-									{comment.name}#{comment.id}
+									{comment.name.trim()}
 								</h3>
 								<p id="date">
 									{new Date(comment.timestamp).toLocaleString()}
-			</p>
+								</p>
 								<hr />
 								<p id="text">
 									{comment.text}
-			</p>
+								</p>
 								<hr />
 							</Comment>
 						</CommentContainer>
-)
-}
+					)
+				}
 				<Hr />
 			</Container> < />
-)
+	)
 }
 
 export default Layout
