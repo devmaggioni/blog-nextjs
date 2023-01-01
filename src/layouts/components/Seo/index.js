@@ -1,4 +1,30 @@
-import {
+import Head from "next/head"
+
+function Seo({title, description, url, image}){
+return <Head>
+  <title>{title || "Blog Undead Cat"}</title>
+  
+  <meta name="description" content={description || "Blog sobre tecnologia, games e tutoriais"}/>
+  
+  <meta property="og:url" content={url || "https://undeadcat.tech"}/>
+  
+  <meta property="og:type" content="website"/>
+  
+  <meta property="og:title" content={title || "Blog Undead Cat"}/>
+  
+  <meta property="og:description" content={description || "Blog sobre tecnologia, games e tutoriais"}/>
+  
+  <meta property="og:image" content={image || "https://undeadcat.tech/images/logo_low.png"}/>
+  
+<link rel="canonical" href={url || "https://undeadcat.tech"}/>
+  
+		</Head>
+}
+export default Seo
+
+
+
+/*import {
 	NextSeo
 } from "next-seo"
 
@@ -86,8 +112,7 @@ function Seo({ canonicalPath, title, description }){
 	)
 }
 
-export default Seo
-*/
+export default Seo*/
 /*import {
 	NextSeo
 } from "next-seo"

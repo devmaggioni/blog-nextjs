@@ -4,8 +4,8 @@ import {
 	useRouter
 } from "next/router"
 import PropTypes from "prop-types"
-import Head from "next/head"
 import postStyles from "../../../styles/Post.module.css"
+import Seo from "../Seo"
 
 import Comments from "../Comments"
 import {
@@ -28,11 +28,12 @@ function PostPage( {
 
 	return (
 		<>
-			<Head>
-				<title>{data.title}</title>
-				<meta content={data.title} property="og:title"/>
-				<meta content={data.desc} property="og:description"/>
-			</Head>
+<Seo
+title={"Blog Undead Cat - " + data.title}
+description={data.desc}
+url={'https://undeadcat.tech/post/' + data.id}
+image={data.thumb}
+/>
 			<Background>
 				<Container>
 					<Title translate="no">{data.title}</Title>
