@@ -45,7 +45,7 @@ function Layout( {
 									{comment.name.trim()}
 									{
 										comment?.ip ?
-										"#" + comment.id + '.' + comment.ip.toString().replace(/[ -.:]/g, '').slice(comment.ip.toString().replace(/[ -.:]/g, '').length - 3, comment.ip.toString().replace(/[ -.:]/g, '').length) : "#" + comment.id + '.000'
+										"#" + comment.id + '.' + comment.ip.toString().replace(/[ -.:]/g, '').slice(comment.ip.toString().replace(/[ -.:]/g, '').length - 2, comment.ip.toString().replace(/[ -.:]/g, '').length) : "#" + comment.id + '.00'
 									}
 								</h3>
 								<p id="date">
