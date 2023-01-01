@@ -34,6 +34,8 @@ async function handler(req, res) {
 		let findPost = await Post.findOne({
 			id: postId
 		})
+		
+		res.status(200).json({findPost})
 
 		if (findPost) {
 
@@ -44,7 +46,6 @@ async function handler(req, res) {
 			const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress
 
 			// adicionar a resposta ao comentário certo
-res.json({ip})
 			findPost.comments.map((a, b)=> {
 				if (!a.replys) {
 					logger.error("o objeto comments não pussui um array chamado replys")
