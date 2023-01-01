@@ -11,8 +11,10 @@ function capitalize(e) {
 async function handler(req, res) {
 	
 	// admin
-  const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress
-	if (!process.env?.BLOG_ADMIN || JSON.stringify(process.env?.BLOG_ADMIN).replace(/[.-:]/g, '') === (JSON.stringify(ip).replace(/[.-:]/g, ''))) return res.status(500).json({ status: "error", msg: "acess denied " + ip + process.env.BLOG_ADMIN })
+  const currentIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress
+  const adminIp = process.env?.BLOG_ADMIN.trim()
+	if (!process.env?.BLOG_ADMIN) return res.status(500).json({ status: "error", msg: "post not habilited"})
+	if (adminIp !== currentIp) return res.status(500).json({ status: "error", msg:'acess denied' })
 
 	if (req.method !== "POST") return res.status(405).json({
 		status: "error", msg: "method not allowed"
