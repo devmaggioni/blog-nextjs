@@ -12,7 +12,7 @@ async function handler(req, res) {
 			status: "error", msg: "method not allowed"
 		})
 
-		const {
+		let {
 			postId,
 			commentId,
 			text,
