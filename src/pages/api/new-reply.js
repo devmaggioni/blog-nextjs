@@ -44,11 +44,7 @@ async function handler(req, res) {
 
 			// adicionar a resposta ao comentário certo
 			findPost.comments.map((a, b)=> {
-				if (!a.replys) {
-					console.error("o objeto comments não pussui um array chamado replys")
-					res.redirect(301, "/post/" + postId)
-				}
-				if (a.id == commentId) {
+				if (a.id == commentId && a?.replys) {
 					let reply = {
 						id: a.replys.length,
 						ip,
