@@ -12,7 +12,7 @@ async function handler(req, res) {
 	
 	let postId = req.body
 	if (!postId) return res.status(400).json({ status: "error", msg: "miss query id" })
-	postId = req.body.trim()
+	postId = postId.trim()
 	
 	try {
 	
