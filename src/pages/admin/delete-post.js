@@ -35,7 +35,7 @@ export function NewPost() {
 	return (
 		<Container>
 	<FormContainer>
-  <form action={"/api/create-post"} method="post">
+  <form action={"/api/delete-post"} method="post">
   
   <input type="text" name="postId" placeholder="id do post" />
   
