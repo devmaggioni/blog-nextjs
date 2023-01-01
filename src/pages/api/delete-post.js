@@ -8,7 +8,7 @@ async function handler(req, res) {
 	if (!process.env?.BLOG_ADMIN) return res.status(500).json({ status: "error", msg: "post not habilited"})
 	if (adminIp !== currentIp) return res.status(500).json({ status: "error", msg:'acess denied' })
 	
-	if (req.method !== "DELETE") return res.status(405).json({ status: "error", msg: "method not allowed" })
+	if (req.method !== "POST") return res.status(405).json({ status: "error", msg: "method not allowed" })
 	
 	let postId = req.body
 	if (!postId) return res.status(400).json({ status: "error", msg: "miss query id" })
