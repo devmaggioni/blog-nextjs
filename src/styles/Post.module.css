@@ -1,16 +1,22 @@
 .post h1 {
+	-webkit-text-stroke: 0.6px black;
+	color: #E52D27;
 	font-size: 2.4rem;
 	text-align: left;
 	margin-bottom: 1rem;
 }
 
 .post h2 {
+	-webkit-text-stroke: 0.6px black;
+	color: #E52D27;
 	font-size: 2rem;
 	text-align: left;
 	margin-bottom: 1rem;
 }
 
 .post h3 {
+	-webkit-text-stroke: 0.6px black;
+	color: #E52D27;
 	font-size: 1.6rem;
 	text-align: left;
 	margin-bottom: 1rem;
