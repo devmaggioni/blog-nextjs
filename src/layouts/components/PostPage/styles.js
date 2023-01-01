@@ -59,15 +59,16 @@ i {
 
 export const AuthorContainer = styled.div`
 margin-top: 2rem;
+margin-bottom: 1.5rem;
 position: relative;
 bottom: 0;
 p {
 font-size: 1.2rem;
 text-align: left;
-margin-bottom: 0.5rem;
 }
 `
 
 export const DateContainer = styled.div`
 text-align: left;
+
 `

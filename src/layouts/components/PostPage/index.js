@@ -20,8 +20,11 @@ import {
 	AuthorContainer
 } from "./styles"
 
-function PostPage({data}) {
+function PostPage( {
+	data
+}) {
 	const router = useRouter()
+	const isUpdate = !!data?.update_timestamp
 
 	return (
 		<>
@@ -50,10 +53,21 @@ function PostPage({data}) {
 					</Article>
 					<hr />
 					<AuthorContainer>
-						<p translate="no"><i className="fa-regular fa-pen-to-square" />{"por: " + data.author}</p>
+						<p translate="no">
+							<i className="fa-regular fa-pen-to-square" />{"por: " + data.author}
+						</p>
 					</AuthorContainer>
 					<DateContainer>
-						<p><i className="fa-regular fa-clock"/>{"editado em: " + new Date(data.timestamp).toLocaleString("pt-BR")}</p>
+						{
+							isUpdate ?
+								<>
+									<p>
+										<i className="fa-regular fa-clock" />{"publicado em: " + new Date(data.timestamp).toLocaleString("pt-BR")}
+									</p>
+									<p>
+										<i className="fa-regular fa-clock" />{"atualizado em: " + new Date(data.update_timestamp).toLocaleString("pt-BR")}
+									</p> < /> : <p>{"publicado em: " + new Date(data.timestamp).toLocaleString("pt-BR")}</p >
+						}
 					</DateContainer>
 					<Comments data={data} />
 				</Container>

@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
-margin-top: 5rem;
+margin-top: 2rem;
 margin-bottom: 5rem;
 width: 95%;
 margin-inline: auto;
