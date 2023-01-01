@@ -11,7 +11,7 @@ async function handler(req, res) {
 			status: "error", msg: "method not allowed"
 		})
 
-		const {
+		let {
 			name,
 			text
 		} = req.body
@@ -29,6 +29,7 @@ async function handler(req, res) {
 		if (findPost) {
 			const timestamp = new Date().getTime()
 			const commentId = findPost.comments.length
+			if (name && name.length > 15) name = name.slice(0, 15)
 			const comment = {
 				id: commentId,
 				name: name.trim() || "Desconhecido",

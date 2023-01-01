@@ -42,7 +42,7 @@ function Layout( {
 						<CommentContainer>
 							<Comment>
 								<h3>
-									{comment.name.trim()}
+									{comment.name.trim()}#{comment.id}
 								</h3>
 								<p id="date">
 									{new Date(comment.timestamp).toLocaleString()}
