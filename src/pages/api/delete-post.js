@@ -4,10 +4,10 @@ import urlencode from "urlencode"
 async function handler(req, res) {
 	
 	// admin
-  const currentIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress
-  const adminIp = process.env?.BLOG_ADMIN.trim()
+	const currentIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress
+	const adminIp = process.env?.BLOG_ADMIN.trim()
 	if (!process.env?.BLOG_ADMIN) return res.status(500).json({ status: "error", msg: "post not habilited"})
-	if (adminIp !== currentIp) return res.status(500).json({ status: "error", msg:'acess denied' })
+	if (adminIp !== currentIp) return res.status(500).json({ status: "error", msg:"acess denied" })
 	
 	if (req.method !== "POST") return res.status(405).json({ status: "error", msg: "method not allowed" })
 	

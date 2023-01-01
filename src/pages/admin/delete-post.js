@@ -34,16 +34,16 @@ color: black;
 export function NewPost() {
 	return (
 		<Container>
-	<FormContainer>
-  <form action={"/api/delete-post"} method="post">
+			<FormContainer>
+				<form action={"/api/delete-post"} method="post">
   
-  <input type="text" name="postId" placeholder="id do post" />
+					<input type="text" name="postId" placeholder="id do post" />
   
-  <button type="submit">{"Enviar"}</button>
-		</form>
-  </FormContainer>
+					<button type="submit">{"Enviar"}</button>
+				</form>
+			</FormContainer>
 		</Container>
-)
+	)
 }
 
 export default NewPost

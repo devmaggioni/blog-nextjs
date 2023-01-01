@@ -1,24 +1,21 @@
 import Head from "next/head"
 
-function Seo({title, description, url, image}){
-return <Head>
-  <title>{title || "Blog Undead Cat"}</title>
-  
-  <meta name="description" content={description || "Blog sobre tecnologia, games e tutoriais"}/>
-  
-  <meta property="og:url" content={url || "https://undeadcat.tech"}/>
-  
-  <meta property="og:type" content="website"/>
-  
-  <meta property="og:title" content={title || "Blog Undead Cat"}/>
-  
-  <meta property="og:description" content={description || "Blog sobre tecnologia, games e tutoriais"}/>
-  
-  <meta property="og:image" content={image || "https://undeadcat.tech/images/logo_low.png"}/>
-  
-<link rel="canonical" href={url || "https://undeadcat.tech"}/>
-  
-		</Head>
+function Seo( {
+	title, description, url, image
+}) {
+	return <Head>
+		<title>{title || "Blog Undead Cat"}</title>
+		<meta name="description" content={description || "Blog sobre tecnologia, games e tutoriais"} />
+		<link rel="shortcut icon" href="cat.ico" />
+		<meta property="og:url" content={url || "https://undeadcat.tech"} />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title || "Blog Undead Cat"} />
+		<meta property="og:description" content={description || "Blog sobre tecnologia, games e tutoriais"} />
+		<meta property="og:image" content={image || "https://undeadcat.tech/images/logo_low.png"} />
+		<link rel='canonical' content={url || "https://undeadcat.tech"} />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+		<meta name="keywords" content="blog, undead cat, nodejs, javascript, tecnologia, portfólio, desenvolvedor, tutoriais, tutorial" />
+	</Head>
 }
 export default Seo
 
@@ -77,37 +74,21 @@ function Seo({ canonicalPath, title, description }){
 	return (
 		<Head>
 			<html lang='pt-BR' />
-		
 			<title>{title || "Blog Undead Cat"}</title>
-			
      	<meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-     	
      	<meta name="keywords" content="dev, blog, undead cat, nodejs, javascript, tecnologia, portfólio, desenvolvedor, programador, tutoriais"/>
-     	
 			<meta name="title" content="Blog Undead Cat"/>
-			
 			<meta name="description" content={description || "Meu blog pessoal"} />
-			
 			<meta property="og:title" content={title || "Blog Undead Cat"} />
-			
 			<meta name="og:type" content="website" />
-		
 			<meta property="og:image" content="https://undeadcat.tech/images/UndeadCat.png" />
-			
 			<meta property="og:image:alt" content="undeadcat.tech - Meu blog NextJs" />
-			
 			<meta property="og:image:width" content="3464" />
-			
 			<meta property="og:image:height" content="1546" />
-			
 			<meta property="og:locale" content="pt_BR" />
-			
 			<meta property="og:url" content="https://undeadcat.tech" />
-			
 			<link rel="canonical" href={`https://undeadcat.tech${canonicalPath || ""}`}/>
-			
 			<link rel="shortcut icon" href="cat.ico" type="image/x-icon" />
-			
 		</Head>
 	)
 }

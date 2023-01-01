@@ -28,12 +28,12 @@ function PostPage( {
 
 	return (
 		<>
-<Seo
-title={"Blog Undead Cat - " + data.title}
-description={data.desc}
-url={'https://undeadcat.tech/post/' + data.id}
-image={data.thumb}
-/>
+			<Seo
+				title={data.title}
+				description={data.desc}
+				url={"https://undeadcat.tech/post/" + data.id}
+				image={data.thumb}
+			/>
 			<Background>
 				<Container>
 					<Title translate="no">{data.title}</Title>

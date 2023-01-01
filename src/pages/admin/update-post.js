@@ -34,23 +34,23 @@ color: black;
 export function NewPost() {
 	return (
 		<Container>
-	<FormContainer>
-  <form action={"/api/update-post"} method="post">
+			<FormContainer>
+				<form action={"/api/update-post"} method="post">
   
-  <input type="text" name="postId" placeholder="id do post a ser editado" />
-  <input type="text" name="title" placeholder="title" />
-  <input type="text" name="desc" placeholder="desc" />
-  <input type="text" name="author" placeholder="author" />
-  <input type="text" name="tags" placeholder="tags separadas por vírgulas" />
-  <input type="text" name="thumb" placeholder="thumbnail (url)" />
-  <textarea name="html" placeholder="html" />
+					<input type="text" name="postId" placeholder="id do post a ser editado" />
+					<input type="text" name="title" placeholder="title" />
+					<input type="text" name="desc" placeholder="desc" />
+					<input type="text" name="author" placeholder="author" />
+					<input type="text" name="tags" placeholder="tags separadas por vírgulas" />
+					<input type="text" name="thumb" placeholder="thumbnail (url)" />
+					<textarea name="html" placeholder="html" />
   
   
-  <button type="submit">{"Enviar"}</button>
-		</form>
-  </FormContainer>
+					<button type="submit">{"Enviar"}</button>
+				</form>
+			</FormContainer>
 		</Container>
-)
+	)
 }
 
 export default NewPost

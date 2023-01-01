@@ -2,7 +2,7 @@ import {
 	Post,
 	connectDB
 } from "../../../lib/mongodb"
-import urlencode from 'urlencode'
+import urlencode from "urlencode"
 
 function capitalize(e) {
 	e = e.split(" "); let t = []; return e.forEach(e=>t.push(e[0].toUpperCase()+e.slice(1, e.length))),
@@ -11,10 +11,10 @@ function capitalize(e) {
 async function handler(req, res) {
 	
 	// admin
-  const currentIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress
-  const adminIp = process.env?.BLOG_ADMIN.trim()
+	const currentIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress
+	const adminIp = process.env?.BLOG_ADMIN.trim()
 	if (!process.env?.BLOG_ADMIN) return res.status(500).json({ status: "error", msg: "post not habilited"})
-	if (adminIp !== currentIp) return res.status(500).json({ status: "error", msg:'acess denied' })
+	if (adminIp !== currentIp) return res.status(500).json({ status: "error", msg:"acess denied" })
 
 	if (req.method !== "POST") return res.status(405).json({
 		status: "error", msg: "method not allowed"
