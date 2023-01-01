@@ -8,8 +8,8 @@ margin-inline: auto;
 text-align: left;
 
 hr {
-	margin-top: 3rem;
-	margin-bottom: 3rem;
+margin-top: 3rem;
+margin-bottom: 3rem;
 }
 
 #title {
@@ -18,10 +18,16 @@ font-size: 2rem;
 }
 
 button {
-	background-color: #292E49;
-	margin-bottom: 2rem;
-	margin-top: 1rem;
-	margin-left: 0.5rem;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+background-color: #292E49;
+margin-bottom: 2rem;
+margin-top: 1rem;
+margin-left: 0.5rem;
 }
 `
 
@@ -31,7 +37,7 @@ max-width: 400px;
 margin-inline: auto;
 `
 
-export const Comment= styled.div`
+export const Comment = styled.div`
 padding-top: 1rem;
 padding-bottom: 1rem;
 padding-inline: 0.5rem;
@@ -41,25 +47,25 @@ background-color: #536976;
 margin-bottom: 1rem;
 
 :hover {
-	border: 2px solid white;
+border: 2px solid white;
 }
 
 h3 {
-	font-size: 1.2rem;
-	
+font-size: 1.2rem;
+
 }
 
 #date {
-	font-size: 0.8rem;
+font-size: 0.8rem;
 }
 
 hr {
-	margin-top: 0.5rem;
-	margin-bottom: 0.5rem;
+margin-top: 0.5rem;
+margin-bottom: 0.5rem;
 }
 
 p {
-	display: inline-block;
+display: inline-block;
 }
 `
 
@@ -73,8 +79,8 @@ padding-top: 1rem;
 padding-bottom: 3rem;
 
 h2 {
-	font-size: 1.5rem;
-	margin-left: 1rem;
+font-size: 1.5rem;
+margin-left: 1rem;
 }
 `
 
@@ -87,7 +93,7 @@ background-color: #757F9A;
 border-radius: 5px;
 
 #date {
-	font-size: 0.8rem;
+font-size: 0.8rem;
 }
 
 hr {
@@ -141,7 +147,6 @@ margin-bottom: 1rem;
 
 h3 {
 	font-size: 1.2rem;
-	
 }
 #date {
 	font-size: 0.8rem;

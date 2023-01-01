@@ -25,8 +25,8 @@ border: 2px solid #F00000;
 transition: 0.2s;
 box-shadow: 2px 2px 15px #4E4376;
 img {
-	width: 105%;
-	transition: 0.5s;
+width: 105%;
+transition: 0.5s;
 }
 }
 position: relative;
@@ -63,11 +63,17 @@ margin-inline: 1.5rem;
 margin-top: 2.5rem;
 margin-bottom: 1rem;
 text-transform: capitalize;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
 `
 
 export const Desc = styled.p`
 :first-letter {
-	text-transform: uppercase;
+text-transform: uppercase;
 }
 font-family: "Noto Sans Mono", Sans-Serif;
 display: inline-block;
@@ -75,7 +81,12 @@ text-align: left;
 font-size: 1.4rem;
 margin-inline: 1.5rem;
 margin-bottom: 1rem;
-}
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
 `
 
 export const TagContainer = styled.div`
@@ -98,11 +109,23 @@ border-radius: 5px;
 
 export const _Date = styled.p`
 display: inline-block;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
 `
 
 export const Author = styled.p`
 display: inline-block;
 margin-right: 1rem;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
 `
 
 export const DateAndAuthorContainer = styled.div`

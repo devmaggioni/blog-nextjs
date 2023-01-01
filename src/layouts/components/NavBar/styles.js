@@ -25,5 +25,11 @@ export const Text = styled.p`
 @media(min-width: 450px){
 font-size: 2rem;
 }
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
 font-size: 1.4rem;
 `
