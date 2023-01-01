@@ -30,6 +30,8 @@ function PostPage( {
 		<>
 			<Head>
 				<title>{data.title}</title>
+				<meta content={data.title} property="og:title"/>
+				<meta content={data.desc} property="og:description"/>
 			</Head>
 			<Background>
 				<Container>
