@@ -32,7 +32,14 @@ function Layout( {
 					data.map((post) =>
 						<PostContainer onClick={()=> setTimeout(function() { router.push("/post/" + post.id)}, 500)}>
 							<ImageContainer>
-								<img src={post.thumb} alt={post.desc} height="200px" width="400px"/>
+								<Image
+									src={post.thumb}
+									alt={post.desc}
+									layout="fill"
+									objectFit="cover"
+									quality={30}
+									placeholder="blurDataURL"
+								/>
 							</ImageContainer>
 							<Title>{post.title}</Title>
 							<Desc id="desc">{post.desc.length < 100 ?post.desc: post.desc.slice(0, 100) + "..."}</Desc>

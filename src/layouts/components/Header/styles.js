@@ -6,12 +6,7 @@ width: 100%;
 background-color: ${theme.colors.header};
 text-align: center;
 overflow: hidden;
-
-#nextImage{
-margin-top: 0.5rem;
-margin-bottom: 0.5rem;
-width: 250px;
-}
+position: relative;
 `
 
 export const Title = styled.h1`

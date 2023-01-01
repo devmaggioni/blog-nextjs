@@ -6,12 +6,14 @@ function Header(){
 		<>
 			<Container>
 				<Image
-					id="nextImage"
-					src='/images/logo_low.png'
+					class="nextImage"
+					src='/images/undead_cat_low.png'
 					alt="logo do blog - Undead Cat"
 					width={250}
-					height={125}
-					quality={30}
+					height={100}
+					quality={100}
+					placeholder="blurDataURL"
+					priority
 				/>
 			</Container>
 		</>

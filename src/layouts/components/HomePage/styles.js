@@ -75,7 +75,6 @@ export const Desc = styled.p`
 :first-letter {
 text-transform: uppercase;
 }
-font-family: "Noto Sans Mono", Sans-Serif;
 display: inline-block;
 text-align: left;
 font-size: 1.4rem;

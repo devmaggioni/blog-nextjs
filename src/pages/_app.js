@@ -1,5 +1,4 @@
 import "../styles/globals.css"
-import "../styles/fonts.css"
 import PropTypes from "prop-types"
 
 // components
