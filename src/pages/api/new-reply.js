@@ -2,7 +2,6 @@ import {
 	Post,
 	connectDB
 } from "../../../lib/mongodb"
-import logger from "../../../lib/logger"
 
 async function handler(req, res) {
 	
