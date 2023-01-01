@@ -62,7 +62,7 @@ async function handler(req, res) {
 			timestamp,
 			author,
 			tags: tags ? tags : ["sem categoria"],
-			thumb: urlencode(thumb.toLowerCase().trim()),
+			thumb: thumb.toLowerCase().trim(),
 			html: urlencode(newHtml)
 		})
 
@@ -73,7 +73,7 @@ async function handler(req, res) {
 		})
 	} catch (e) {
 		res.status(500).json({
-			status: "error", msg: e.stack
+			status: "error", msg: e.name
 		})
 	}
 

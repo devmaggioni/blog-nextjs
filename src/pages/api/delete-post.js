@@ -2,13 +2,17 @@ import { Post, connectDB } from "../../../lib/mongodb"
 
 async function handler(req, res) {
 	
-	// crie uma variável de ambiente para criar/deletar posts
-	if (!process.env.ENABLE_POSTS) return res.status(500).json({ status: "error", msg: "acess denied" })
+	// admin
+  const currentIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress
+  const adminIp = process.env?.BLOG_ADMIN.trim()
+	if (!process.env?.BLOG_ADMIN) return res.status(500).json({ status: "error", msg: "post not habilited"})
+	if (adminIp !== currentIp) return res.status(500).json({ status: "error", msg:'acess denied' })
 	
 	if (req.method !== "DELETE") return res.status(405).json({ status: "error", msg: "method not allowed" })
 	
-	let postId = req.query.id
+	let postId = req.body
 	if (!postId) return res.status(400).json({ status: "error", msg: "miss query id" })
+	postId = req.body.trim()
 	
 	try {
 	
