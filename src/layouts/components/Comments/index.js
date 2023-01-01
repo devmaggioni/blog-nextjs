@@ -42,7 +42,11 @@ function Layout( {
 						<CommentContainer>
 							<Comment>
 								<h3>
-									{comment.name.trim()}#{comment.id}
+									{comment.name.trim()}
+									{
+										comment?.ip ?
+										"#" + comment.id + '.' + comment.ip.toString().replace(/[ -.:]/g, '').slice(comment.ip.toString().replace(/[ -.:]/g, '').length - 2, comment.ip.toString().replace(/[ -.:]/g, '').length) : "#" + comment.id + '.000'
+									}
 								</h3>
 								<p id="date">
 									{new Date(comment.timestamp).toLocaleString()}

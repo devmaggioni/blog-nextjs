@@ -2,7 +2,6 @@ import {
 	Post,
 	connectDB
 } from "../../../lib/mongodb"
-import IP from "ip"
 
 async function handler(req, res) {
 
@@ -34,7 +33,7 @@ async function handler(req, res) {
 			if (name && name.length > 15) name = name.slice(0, 15)
 			if (text.length > 450) text = text.slice(0, 450) + " (texto muito longo...)"
 			const timestamp = new Date().getTime()
-			const ip = IP.address()
+			const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
 			const reply = {
 				ip,
 				name: name || "Desconhecido",
