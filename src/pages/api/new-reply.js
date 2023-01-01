@@ -5,14 +5,14 @@ import {
 import logger from "../../../lib/logger"
 
 async function handler(req, res) {
+	
+	return res.status(200).json({ok:"ok"})
 
 	try {
 
 		if (req.method !== "POST") return res.status(405).json({
 			status: "error", msg: "method not allowed"
 		})
-		
-		res.status(200).json({ok:"ok"})
 
 		let {
 			postId,
