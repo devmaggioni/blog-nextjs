@@ -2,6 +2,7 @@ import {
 	Post,
 	connectDB
 } from "../../../lib/mongodb"
+import urlencode from "urlencode"
 
 function capitalize(e) {
 	e = e.split(" "); let t = []; return e.forEach(e=>t.push(e[0].toUpperCase()+e.slice(1, e.length))),
@@ -9,8 +10,9 @@ function capitalize(e) {
 
 async function handler(req, res) {
 	
-	// crie uma variável de ambiente para criar/deletar posts
-	if (!process.env.ENABLE_POSTS) return res.status(500).json({ status: "error", msg: "acess denied" })
+	// admin
+  const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress
+	if (!process.env?.BLOG_ADMIN || process.env?.BLOG_ADMIN.includes(ip)) return res.status(500).json({ status: "error", msg: "acess denied" })
 
 	if (req.method !== "POST") return res.status(405).json({
 		status: "error", msg: "method not allowed"
@@ -23,7 +25,7 @@ async function handler(req, res) {
 		tags,
 		thumb,
 		html
-	} = req.query
+	} = req.body
 
 	const timestamp = new Date().getTime()
 	const postId = `${timestamp}|${title.toLowerCase().replace(/[ ,:@#$_&+()*"'!?;:{}%]/g, "")}`
@@ -41,20 +43,25 @@ async function handler(req, res) {
 			.replaceAll("\"code\"", "\"code\"  contenteditable=true")
 
 		// primeira letra maiúscula 
+		desc = desc.trim()
 		desc = desc[0].toUpperCase() + desc.slice(1, desc.length)
+		if (tags) {
+		tags = tags.split(",")
+		tags = tags.map(tag => tag.toLowerCase().trim())
+		}
 		
 		// capitalizar nome
-		author = capitalize(author)
+		author = capitalize(author.trim())
 		
 		const post = new Post({
 			id: postId,
-			title,
-			desc,
+			title: title.trim(),
+			desc: desc.trim(),
 			timestamp,
 			author,
-			tags: tags ? JSON.parse(tags): ["sem categoria"],
-			thumb,
-			html: newHtml
+			tags: tags ? tags : ["sem categoria"],
+			thumb: urlencode(thumb.toLowerCase().trim()),
+			html: urlencode(newHtml)
 		})
 
 		await post.save()
@@ -64,7 +71,7 @@ async function handler(req, res) {
 		})
 	} catch (e) {
 		res.status(500).json({
-			status: "error", msg: e.name
+			status: "error", msg: e.stack
 		})
 	}
 
