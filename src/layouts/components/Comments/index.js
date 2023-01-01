@@ -2,67 +2,82 @@ import {
 	Container,
 	CommentContainer,
 	Comment,
-	Title,
-	WritingComment,
-	Hr
+	ReplyContainer,
+	Reply
 } from "./styles"
 
-function Layout( {
+import NewComment from "../NewComment"
+import { showReplyContainer, showContainerNewComment, showContainerNewReply, newDate } from "./scripts"
+
+function Layout({
 	data
 }) {
+	
 	return (
 		<>
 			<Container>
-				<Hr />
-				<Title>Comentários</Title>
-				<button onClick={
-					()=> {
-						(document.getElementById("newComment").style.display === "block") ? document.getElementById("newComment").style.display = "none": document.getElementById("newComment").style.display = "block" }
-				}>
-	novo comentário
+	
+				<hr/>
+				<h1 id="title">Comentários</h1>
+				<button onClick={showContainerNewComment}>
+	adicionar comentário
 				</button>
-				<WritingComment id="newComment">
-					<form action={`/api/new-comment?id=${data.id}`} method="post">
-						<div>
-							<label htmlFor="nome">Nome:</label>
-							<input type="text" id="nome" name="name" />
-						</div>
-						<div>
-							<label htmlFor="msg">Mensagem:</label>
-							<textarea id="msg" name="text"></textarea>
-						</div>
-
-						<div className="button">
-							<button type="submit">Enviar sua mensagem</button>
-						</div>
-					</form>
-				</WritingComment>
+	
+				<NewComment
+					id="newComment"
+					pathname={"new-comment?id=" + data.id}
+				/>
+  
 				{
-					data.comments.map((comment)=>
+  	// mapear comentários e exibi-los
+					data.comments.map((comment, commentIndex)=>
 						<CommentContainer>
-							<Comment>
-								<h3>
-									{comment.name.trim()}
-									{
-										comment?.ip ?
-										"#" + comment.id + '.' + comment.ip.toString().replace(/[ -.:]/g, '').slice(comment.ip.toString().replace(/[ -.:]/g, '').length - 2, comment.ip.toString().replace(/[ -.:]/g, '').length) : "#" + comment.id + '.00'
-									}
-								</h3>
-								<p id="date">
-									{new Date(comment.timestamp).toLocaleString()}
-								</p>
-								<hr />
-								<p id="text">
-									{comment.text}
-								</p>
-								<hr />
+    
+							<Comment onClick={()=>{
+								showReplyContainer(commentIndex)
+							}}>
+    
+								{/* nome = nome.id.ip */}
+								<h3>{comment.name.trim()}{comment?.ip ?"#" + comment.id + "." + comment.ip.toString().replace(/[ -.:]/g, "").slice(comment.ip.toString().replace(/[ -.:]/g, "").length - 2, comment.ip.toString().replace(/[ -.:]/g, "").length): "#" + comment.id + ".00"}</h3>
+    
+								<p id="date">{newDate(data.timestamp)}</p>
+								<hr/>
+								<p id='text'>{comment.text}</p>
+								<hr/>
+								<p><i className="fa-solid fa-reply"/>{comment?.replys?.length || 0}</p>
 							</Comment>
+    
+							<ReplyContainer id={"replyContainer" + commentIndex}>
+    
+								<h2>Respostas</h2>
+								<button onClick={()=>showContainerNewReply(commentIndex)}>
+	responder este comentário
+								</button>
+    
+								<NewComment
+									id={"newReply" + comment.id}
+									buttonText="responder"
+									pathname={`new-reply?commentId=${comment.id}&postId=${data.id}`}
+								/>
+
+								{comment?.replys ? comment.replys.map(reply=>
+									<Reply>
+										<h3>{reply.name}{reply?.ip ?"#" + reply.id + "." + reply.ip.toString().replace(/[ -.:]/g, "").slice(reply.ip.toString().replace(/[ -.:]/g, "").length - 2, reply.ip.toString().replace(/[ -.:]/g, "").length): "#" + reply.id + ".00"}</h3>
+										<p id="date">{newDate(reply.timestamp)}</p>
+										<hr/>
+										<p id="text">{reply.text}</p>
+										<hr/>
+									</Reply>
+								) : ""
+								}
+							</ReplyContainer>
+    
 						</CommentContainer>
 					)
 				}
-				<Hr />
-			</Container> < />
+	
+			</Container>
+		</>
 	)
 }
-
 export default Layout

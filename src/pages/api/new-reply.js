@@ -2,6 +2,7 @@ import {
 	Post,
 	connectDB
 } from "../../../lib/mongodb"
+import logger from "../../../lib/logger"
 
 async function handler(req, res) {
 
@@ -14,13 +15,21 @@ async function handler(req, res) {
 		let {
 			postId,
 			commentId,
+		} = req.query
+		let {
 			text,
 			name
-		} = req.query
+		} = req.body
 
-		if (!postId || !commentId || !text) return res.status(400).json({
-			status: "error", msg: "miss some parameters"
+		if (!postId) return res.status(400).json({
+			status: "error", msg: "miss postId"
 		})
+		if (!commentId) return res.status(400).json({
+			status: "error", msg: "miss commentId"
+		})
+		if (!text) return res.redirect(301, "/post/" + postId)
+		
+		if (postId.includes("http")) postId = postId.split("post/")[1]
 
 		// encontrar o post atual
 		let findPost = await Post.findOne({
@@ -28,33 +37,39 @@ async function handler(req, res) {
 		})
 
 		if (findPost) {
-			
-			// reply comment 
+
+			// reply comment
 			if (name && name.length > 15) name = name.slice(0, 15)
 			if (text.length > 450) text = text.slice(0, 450) + " (texto muito longo...)"
 			const timestamp = new Date().getTime()
-			const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
-			const reply = {
-				ip,
-				name: name || "Desconhecido",
-				text,
-				timestamp
-			}
-			
+			const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress
+
 			// adicionar a resposta ao comentário certo
-			findPost.comments.map((a, b)=>{
-				if (a.id == commentId) findPost.comments[b].replys.push(reply)
+			findPost.comments.map((a, b)=> {
+				if (!a.replys) {
+					logger.error("o objeto comments não pussui um array chamado replys")
+					res.redirect(301, "/post/" + postId)
+				}
+				if (a.id == commentId) {
+					let reply = {
+						id: a.replys.length,
+						ip,
+						name: name || "Desconhecido",
+						text,
+						timestamp
+					}
+					findPost.comments[b].replys.push(reply)
+				}
 			})
-			
+
 			// atualizar post com o novo reply
 			await Post.updateOne({
 				id: postId
-			}, findPost)
-			
-			res.status(200).json({
-				status: "ok", msg: "sucess"
-			})
-			
+			},
+			findPost)
+
+			return res.redirect(301, "/post/" + postId)
+
 		} else {
 			res.status(422).json({
 				status: "error", msg: "post not found"

@@ -27,7 +27,7 @@ async function handler(req, res) {
 		})
 
 		if (findPost) {
-			const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
+			const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress
 			const timestamp = new Date().getTime()
 			const commentId = findPost.comments.length
 			if (name && name.length > 15) name = name.slice(0, 15)
