@@ -62,7 +62,7 @@ async function handler(req, res) {
 			timestamp,
 			author,
 			tags: tags ? tags : ["sem categoria"],
-			thumb: thumb.toLowerCase().trim(),
+			thumb: thumb.trim(),
 			html: urlencode(newHtml)
 		})
 

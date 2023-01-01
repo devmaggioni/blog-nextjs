@@ -59,7 +59,7 @@ async function handler(req, res) {
 			update_timestamp: timestamp,
 			author: author || findPost.author,
 			tags: tags ? JSON.parse(tags) : findPost.tags,
-			thumb: thumb || findPost.thumb,
+			thumb: thumb ? thumb.trim() : findPost.thumb,
 			html: newHtml || findPost.html,
 			comments: findPost.comments
 		}
