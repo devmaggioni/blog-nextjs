@@ -2,6 +2,7 @@ import {
 	Post,
 	connectDB
 } from "../../../lib/mongodb"
+import urlencode from 'urlencode'
 
 function capitalize(e) {
 	e = e.split(" "); let t = []; return e.forEach(e=>t.push(e[0].toUpperCase()+e.slice(1, e.length))),
@@ -9,21 +10,25 @@ function capitalize(e) {
 
 async function handler(req, res) {
 	
-	if (!process.env.ENABLE_POSTS) return res.status(500).json({ status: "error", msg: "acess denied" })
+	// admin
+  const currentIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress
+  const adminIp = process.env?.BLOG_ADMIN.trim()
+	if (!process.env?.BLOG_ADMIN) return res.status(500).json({ status: "error", msg: "post not habilited"})
+	if (adminIp !== currentIp) return res.status(500).json({ status: "error", msg:'acess denied' })
 
 	if (req.method !== "POST") return res.status(405).json({
 		status: "error", msg: "method not allowed"
 	})
 
 	let {
-		id: postId,
+		postId,
 		title,
 		desc,
 		author,
 		tags,
 		thumb,
 		html
-	} = req.query
+	} = req.body
 
 	const timestamp = new Date().getTime()
 	
@@ -32,6 +37,7 @@ async function handler(req, res) {
 	})
 	
 	if (postId.includes("http")) postId = postId.split("post/")[1]
+	postId = urlencode.decode(postId)
 
 	try {
 
@@ -39,7 +45,7 @@ async function handler(req, res) {
 		if (html) newHtml = html.replaceAll("<img", `<img alt="${desc}" class="post"`).replaceAll("<iframe", "<div class=\"iframeContainer\"><iframe").replaceAll("</iframe>", "</iframe></div>").replaceAll("\"code\"", "\"code\"  contenteditable=true")
 
 		desc = desc ? desc[0].toUpperCase() + desc.slice(1, desc.length) : undefined
-		author = author ? capitalize(author) : undefined
+		author = author ? capitalize(author.trim()) : undefined
 		const newPostId = title ? `${timestamp}|${title.toLowerCase().replace(/[ ,:@#$_&+()*"'!?;:{}%]/g, "")}` : undefined
 
 		const findPost = await Post.findOne({ id: postId })
@@ -47,8 +53,8 @@ async function handler(req, res) {
     
 		const updatedPost = {
 			id: newPostId || postId,
-			title: title || findPost.title,
-			desc: desc || findPost.desc,
+			title: title ? title.trim() : findPost.title,
+			desc: desc ? desc.trim() : findPost.desc,
 			timestamp: findPost.timestamp,
 			update_timestamp: timestamp,
 			author: author || findPost.author,

@@ -1,4 +1,5 @@
 import { Post, connectDB } from "../../../lib/mongodb"
+import urlencode from "urlencode"
 
 async function handler(req, res) {
 	
@@ -10,13 +11,14 @@ async function handler(req, res) {
 	
 	if (req.method !== "POST") return res.status(405).json({ status: "error", msg: "method not allowed" })
 	
-	let postId = req.body
+	let { postId } = req.body
 	if (!postId) return res.status(400).json({ status: "error", msg: "miss query id" })
-	postId = postId.trim()
+	postId = urlencode.decode(postId.trim())
 	
 	try {
 	
 	  if (postId.includes("http")) postId = postId.split("post/")[1]
+	  
 		const findPost = await Post.findOne({ id: postId })
 	
 		if (!findPost) {
@@ -27,7 +29,7 @@ async function handler(req, res) {
 		}
 	
 	} catch(e) {
-		res.status(500).json({ status: "error", msg: e.name })
+		res.status(500).json({ status: "error", msg: e.stack })
 	}
 	
 }
