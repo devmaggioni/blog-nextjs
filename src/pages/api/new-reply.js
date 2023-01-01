@@ -11,6 +11,8 @@ async function handler(req, res) {
 		if (req.method !== "POST") return res.status(405).json({
 			status: "error", msg: "method not allowed"
 		})
+		
+		res.status(200).json({ok:"ok"})
 
 		let {
 			postId,
@@ -34,8 +36,6 @@ async function handler(req, res) {
 		let findPost = await Post.findOne({
 			id: postId
 		})
-		
-		res.status(200).json({findPost})
 
 		if (findPost) {
 
