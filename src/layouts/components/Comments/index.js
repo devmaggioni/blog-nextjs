@@ -71,11 +71,10 @@ function Layout({
 								) : ""
 								}
 							</ReplyContainer>
-    
 						</CommentContainer>
 					)
 				}
-	
+	    <hr/>
 			</Container>
 		</>
 	)

@@ -27,10 +27,9 @@ async function handler(req, res) {
 		if (!commentId) return res.status(400).json({
 			status: "error", msg: "miss commentId"
 		})
-		if (!text) return res.redirect(301, "/post/" + postId)
-		
 		if (postId.includes("http")) postId = postId.split("post/")[1]
-
+		if (!text) return res.redirect(301, "/post/" + postId)
+	
 		// encontrar o post atual
 		let findPost = await Post.findOne({
 			id: postId
