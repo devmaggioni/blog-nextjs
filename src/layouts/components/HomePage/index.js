@@ -3,7 +3,7 @@ import {
 } from "next/router"
 import Image from "next/image"
 import PropTypes from "prop-types"
-import Seo from "../Seo"
+import Head from "next/head"
 import {
 	PostContainer,
 	FlexContainer,
@@ -28,7 +28,20 @@ function Layout( {
 
 	return(
 		<>
-			<Seo fontawesome/>
+			<Head>
+		<title>Home - Undead Cat</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta name="description" content="Blog sobre tecnologia, games e tutoriais"/>
+		<link rel="shortcut icon" href="cat.ico" />
+		<meta property="og:url" content="https://undeadcat.tech"/>
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Blog Undead Cat"/>
+		<meta property="og:description" content="Blog sobre tecnologia, games e tutoriais"/>
+		<meta property="og:image" content="https://undeadcat.tech/images/logo_low.png" />
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+		<meta name="keywords" content="blog, undead cat, nodejs, javascript, tecnologia, portfólio, desenvolvedor, tutoriais, tutorial"/>
+		<meta name="theme-color" content="#141E30"/>
+			</Head>
 			<FlexContainer>
 				{
 					data.map((post) =>

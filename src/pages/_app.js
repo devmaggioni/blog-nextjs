@@ -2,7 +2,6 @@ import "../styles/globals.css"
 import PropTypes from "prop-types"
 
 // components
-import Seo from "../layouts/components/Seo"
 import Header from "../layouts/components/Header"
 import NavBar from "../layouts/components/NavBar"
 import Footer from "../layouts/components/Footer"
@@ -12,7 +11,6 @@ export default function App({
 }) {
 	return (
 		<>
-			<Seo/>
 			<div className="appContainer">
 				<Header />
 				<NavBar />

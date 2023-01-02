@@ -5,7 +5,7 @@ import {
 } from "next/router"
 import PropTypes from "prop-types"
 import postStyles from "../../../styles/Post.module.css"
-import Seo from "../Seo"
+import Head from "next/head"
 
 import Comments from "../Comments"
 import {
@@ -28,13 +28,20 @@ function PostPage( {
 
 	return (
 		<>
-			<Seo
-				title={data.title}
-				fontawesome
-				description={data.desc}
-				url={"https://undeadcat.tech/post/" + data.id}
-				image={data.thumb}
-			/>
+			<Head>
+		<title>{data.title}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta name="description" content={data.desc}/>
+		<link rel="shortcut icon" href="cat.ico" />
+		<meta property="og:url" content="https://undeadcat.tech"/>
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Blog Undead Cat"/>
+		<meta property="og:description" content="Blog sobre tecnologia, games e tutoriais"/>
+		<meta property="og:image" content="https://undeadcat.tech/images/logo_low.png" />
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+		<meta name="keywords" content="post"/>
+		<meta name="theme-color" content="#141E30"/>
+			</Head>
 			<Background>
 				<Container>
 					<Title translate="no">{data.title}</Title>
