@@ -4,8 +4,13 @@ import Document, {
 	Main,
 	NextScript
 } from "next/document"
-import { ServerStyleSheet } from "styled-components"
+import Script from "next/script"
+import {
+	ServerStyleSheet
+} from "styled-components"
 import Analytics from "../layouts/components/Analytics"
+import dotenv from "dotenv"
+dotenv.config()
 
 export default class MyDocument extends Document {
 	static async getInitialProps(ctx) {
@@ -14,19 +19,21 @@ export default class MyDocument extends Document {
 
 		try {
 			ctx.renderPage = () =>
-				originalRenderPage({
-					enhanceApp: (App) => (props) =>
-						sheet.collectStyles(<App {...props} />)
-				})
+			originalRenderPage({
+				enhanceApp: (App) => (props) =>
+				sheet.collectStyles(<App {...props} />)
+			})
 
 			const initialProps = await Document.getInitialProps(ctx)
 			return {
 				...initialProps,
 				styles: (
 					<>
-						{initialProps.styles}
-						{sheet.getStyleElement()}
-					</>
+					{
+						initialProps.styles
+					}
+					{
+						sheet.getStyleElement()} < />
 				)
 			}
 		} finally {
@@ -36,21 +43,27 @@ export default class MyDocument extends Document {
 
 	render() {
 		return (
-			<Html lang="pt-BR">
-				<Head/>
-				<body>
-					<Main />
-					<NextScript />
-					<Analytics/>
-				</body>
-			</Html>
+			<Html>
+        <Head>
+				<Script
+					id="Adsense-id"
+					data-ad-client={process.env.ADSENSE}
+					async="true"
+					strategy="beforeInteractive"
+					src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+					/>
+        <Analytics />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+			</body>
+      </Html>
 		)
 	}
 }
 
-/*import Document, {Html} from "next/document"
-import { ServerStyleSheet } from "styled-components"
-
+	/*
 export default class MyDocument extends Document {
 	static async getInitialProps(ctx) {
 		const sheet = new ServerStyleSheet()

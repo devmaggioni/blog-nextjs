@@ -1,24 +1,27 @@
-import React from "react"
+import { GA_TRACKING_ID } from '../../../../lib/gtag'
 
-const Analytics = () => (
+function Analytics(){
+	return(
 	<>
-		<script
-			async
-			src={`https://www.googletagmanager.com/gtag/js?id=${process.env.ANALYTICS}`}
-		/>
-		<script
-			dangerouslySetInnerHTML={{
-				__html: `
+        {/* Global Site Tag (gtag.js) - Google Analytics */}
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${process.env.ANALYTICS}', {
+            gtag('config', '${GA_TRACKING_ID}', {
               page_path: window.location.pathname,
             });
-          `
-			}}
-		/>
-	</>
+          `,
+            }}
+          />
+          </>
 )
+}
 
 export default Analytics
