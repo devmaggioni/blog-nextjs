@@ -35,20 +35,26 @@ function PostPage( {
 			/>
 		<Background>
 				<Container>
+			<ins class="adsbygoogle"
+				style={ { "display": "block" }}
+				data-ad-client="ca-pub-8954292946873553"
+				data-ad-slot="2319807932"
+				data-ad-format="auto"
+				data-full-width-responsive="true"></ins>
 					<Title translate="no">{data.title}</Title>
 					<Desc translate="no">{data.desc}</Desc>
 					<TagsContainer>
 						{
-			data.tags.map(tag =>
-				<Tag
-					translate="no"
-					onClick={()=> {
-						router.push("/categories/" + tag.toLowerCase().replace(/ /g, "-"))
-					}}>
+				data.tags.map(tag =>
+					<Tag
+						translate="no"
+						onClick={()=> {
+							router.push("/categories/" + tag.toLowerCase().replace(/ /g, "-"))
+						}}>
 									<i className="fa-solid fa-tag" />
 									{tag.toLowerCase()}
 								</Tag>
-			)}
+				)}
 					</TagsContainer>
 					<Article className={postStyles.post}>
 						{toHtml(urlencode.decode(data.html))}
@@ -57,7 +63,7 @@ function PostPage( {
 					<AuthorContainer>
 						<p translate="no">
 							<i className="fa-regular fa-pen-to-square" />{"por: " + data.author}
-		</p>
+			</p>
 					</AuthorContainer>
 					<DateContainer>
 						{

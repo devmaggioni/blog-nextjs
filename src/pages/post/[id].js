@@ -47,7 +47,8 @@ function Post() {
 				description={data.data.desc}
 				canonicalPath={"/post/" + (router.query.id)}
 			/>*/}
-		<PostPage data={data.data} /> < />
+		<PostPage data={data.data} /> 
+		</>
 	)
 }
 
