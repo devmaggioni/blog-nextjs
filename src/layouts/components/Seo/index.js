@@ -4,6 +4,7 @@ function Seo( {
 	title, description, url, image, keywords, fontawesome
 }) {
 	return <Head>
+	<script type="module" async src='/content-visible.js'/>
 		<title>{title || "Blog Undead Cat"}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<meta name="description" content={description || "Blog sobre tecnologia, games e tutoriais"} />
@@ -17,7 +18,7 @@ function Seo( {
 	 {fontawesome ? <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/> : <></>
 	 }
 		<meta name="keywords" content={keywords || "blog, undead cat, nodejs, javascript, tecnologia, portfólio, desenvolvedor, tutoriais, tutorial"}/>
-		<meta name="theme-color" content="#151F3A"/>
+		<meta name="theme-color" content="#141E30"/>
 	</Head>
 }
 export default Seo

@@ -13,6 +13,7 @@
 
 body {
 	background-color: black;
+	content-visibility: hidden;
 }
 
 i {
