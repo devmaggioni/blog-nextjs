@@ -13,7 +13,6 @@ function Seo( {
 		<meta property="og:title" content={title || "Blog Undead Cat"} />
 		<meta property="og:description" content={description || "Blog sobre tecnologia, games e tutoriais"} />
 		<meta property="og:image" content={image || "https://undeadcat.tech/images/logo_low.png"} />
-		<link rel='canonical' content={url || "https://undeadcat.tech"} />
 	 {fontawesome ? <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/> : <></>
 	 }
 		<meta name="keywords" content={keywords || "blog, undead cat, nodejs, javascript, tecnologia, portfólio, desenvolvedor, tutoriais, tutorial"}/>
