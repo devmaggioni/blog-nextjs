@@ -13,7 +13,7 @@
 
 body {
 	background-color: black;
-	content-visibility: hidden;
+	content-visibility: auto;
 }
 
 i {

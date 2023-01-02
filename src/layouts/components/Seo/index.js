@@ -4,7 +4,6 @@ function Seo( {
 	title, description, url, image, keywords, fontawesome
 }) {
 	return <Head>
-	<script type="module" async src='/content-visible.js'/>
 		<title>{title || "Blog Undead Cat"}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<meta name="description" content={description || "Blog sobre tecnologia, games e tutoriais"} />

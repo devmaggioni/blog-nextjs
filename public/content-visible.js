@@ -22,7 +22,7 @@ let observer = new IntersectionObserver(
 	// Set a rendering "skirt" 50px above
 	// and 100px below the main scroll area.
 	{
-		rootMargin: "100px 0px 100px 0px"
+		rootMargin: "1px 0px 1px 0px"
 	}
 );
 
