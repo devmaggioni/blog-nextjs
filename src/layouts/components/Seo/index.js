@@ -1,10 +1,11 @@
 import Head from "next/head"
 
 function Seo( {
-	title, description, url, image
+	title, description, url, image, fontawesome
 }) {
 	return <Head>
 		<title>{title || "Blog Undead Cat"}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<meta name="description" content={description || "Blog sobre tecnologia, games e tutoriais"} />
 		<link rel="shortcut icon" href="cat.ico" />
 		<meta property="og:url" content={url || "https://undeadcat.tech"} />
@@ -13,7 +14,7 @@ function Seo( {
 		<meta property="og:description" content={description || "Blog sobre tecnologia, games e tutoriais"} />
 		<meta property="og:image" content={image || "https://undeadcat.tech/images/logo_low.png"} />
 		<link rel='canonical' content={url || "https://undeadcat.tech"} />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+	 {fontawesome ? <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/> : <></>}
 		<meta name="keywords" content="blog, undead cat, nodejs, javascript, tecnologia, portfólio, desenvolvedor, tutoriais, tutorial" />
 	</Head>
 }

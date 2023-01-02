@@ -30,6 +30,7 @@ function PostPage( {
 		<>
 			<Seo
 				title={data.title}
+				fontawesome
 				description={data.desc}
 				url={"https://undeadcat.tech/post/" + data.id}
 				image={data.thumb}

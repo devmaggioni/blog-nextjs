@@ -3,6 +3,7 @@ import {
 } from "next/router"
 import Image from "next/image"
 import PropTypes from "prop-types"
+import Seo from "../Seo"
 import {
 	PostContainer,
 	FlexContainer,
@@ -27,6 +28,7 @@ function Layout( {
 
 	return(
 		<>
+			<Seo fontawesome/>
 			<FlexContainer>
 				{
 					data.map((post) =>

@@ -49,12 +49,6 @@ width: 100%;
 height: 16rem;
 overflow: hidden;
 border-bottom: 2px solid black;
-
-img {
-width: 100%;
-min-height: 16rem;
-max-height: 40rem;
-}
 `
 
 export const Title = styled.h2`
