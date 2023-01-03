@@ -1,7 +1,7 @@
-import { CategoriesPage } from "../../layouts"
+import { CategoriesPage } from "../../layouts";
 
-function Categories(){
-	return <CategoriesPage/>
+function Categories() {
+  return <CategoriesPage />;
 }
 
-export default Categories
+export default Categories;

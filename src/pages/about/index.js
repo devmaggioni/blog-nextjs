@@ -1,7 +1,7 @@
-import { AboutPage } from "../../layouts"
+import { AboutPage } from "../../layouts";
 
-function About(){
-	return <AboutPage/>
+function About() {
+  return <AboutPage />;
 }
 
-export default About
+export default About;

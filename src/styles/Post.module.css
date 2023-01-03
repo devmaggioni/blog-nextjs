@@ -1,87 +1,87 @@
 .post h1 {
-	-webkit-text-stroke: 0.6px black;
-	color: #E52D27;
-	font-size: 2.4rem;
-	text-align: left;
-	margin-bottom: 1rem;
+  -webkit-text-stroke: 0.6px black;
+  color: #e52d27;
+  font-size: 2.4rem;
+  text-align: left;
+  margin-bottom: 1rem;
 }
 
 .post h2 {
-	-webkit-text-stroke: 0.6px black;
-	color: #E52D27;
-	font-size: 2rem;
-	text-align: left;
-	margin-bottom: 1rem;
+  -webkit-text-stroke: 0.6px black;
+  color: #e52d27;
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 1rem;
 }
 
 .post h3 {
-	-webkit-text-stroke: 0.6px black;
-	color: #E52D27;
-	font-size: 1.6rem;
-	text-align: left;
-	margin-bottom: 1rem;
+  -webkit-text-stroke: 0.6px black;
+  color: #e52d27;
+  font-size: 1.6rem;
+  text-align: left;
+  margin-bottom: 1rem;
 }
 
 .post p {
-	font-size: 1.4rem;
-	text-align: left;
-	text-indent: 1rem;
-	margin-bottom: 1rem;
+  font-size: 1.4rem;
+  text-align: left;
+  text-indent: 1rem;
+  margin-bottom: 1rem;
 }
 
 .post img {
-	width: 100%;
-	border: 1px solid black;
-	border-radius: 10px;
-	margin-top: 3rem;
-	margin-bottom: 3rem;
-	margin-inline: auto;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  margin-inline: auto;
 }
 
 .post img:hover {
-	transition: 0.5s;
-	border: 2px solid white;
-	width: 101%;
+  transition: 0.5s;
+  border: 2px solid white;
+  width: 101%;
 }
 
 .post strong {
-	font-size: 1.6rem;
+  font-size: 1.6rem;
 }
 
 .post a {
-	font-size: 1.6rem;
-	color: red;
+  font-size: 1.6rem;
+  color: red;
 }
 
 .post iframe {
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	width: 100%;
-	height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .post li {
-	font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
 .post ol {
-	margin-top: 2rem;
-	margin-bottom: 2rem;
-	padding-left: 0;
-	list-style: inside;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-left: 0;
+  list-style: inside;
 }
 
 .post ul {
-	margin-top: 2rem;
-	margin-bottom: 2rem;
-	padding-left: 0;
-	list-style: inside;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-left: 0;
+  list-style: inside;
 }
 
 .post hr {
-	margin-top: 3rem;
-	margin-bottom: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }

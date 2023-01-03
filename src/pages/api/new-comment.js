@@ -1,65 +1,64 @@
-import {
-	Post,
-	connectDB
-} from "../../../lib/mongodb"
+import { Post, connectDB } from "../../../lib/mongodb";
 
 async function handler(req, res) {
+  try {
+    if (req.method !== "POST")
+      return res.status(405).json({
+        status: "error",
+        msg: "method not allowed",
+      });
 
-	try {
+    let { name, text } = req.body;
+    const { id: postId } = req.query;
 
-		if (req.method !== "POST") return res.status(405).json({
-			status: "error", msg: "method not allowed"
-		})
+    if (!postId)
+      return res.status(400).json({
+        status: "error",
+        msg: "miss id parameters",
+      });
+    if (!text) return res.redirect(301, "/post/" + postId);
 
-		let {
-			name,
-			text
-		} = req.body
-		const { id: postId } = req.query
+    let findPost = await Post.findOne({
+      id: postId,
+    });
 
-		if (!postId) return res.status(400).json({
-			status: "error", msg: "miss id parameters"
-		})
-		if (!text) return res.redirect(301, "/post/" + postId)
+    if (findPost) {
+      const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+      const timestamp = new Date().getTime();
+      const commentId = findPost.comments.length;
+      if (name && name.length > 15) name = name.slice(0, 15);
+      if (text.length > 450)
+        text = text.slice(0, 450) + " (texto muito longo...)";
+      const comment = {
+        id: commentId,
+        ip,
+        name: name.trim() || "Desconhecido",
+        text,
+        timestamp,
+        replys: [],
+      };
 
-		let findPost = await Post.findOne({
-			id: postId
-		})
+      findPost.comments.push(comment);
 
-		if (findPost) {
-			const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress
-			const timestamp = new Date().getTime()
-			const commentId = findPost.comments.length
-			if (name && name.length > 15) name = name.slice(0, 15)
-			if (text.length > 450) text = text.slice(0, 450) + " (texto muito longo...)"
-			const comment = {
-				id: commentId,
-				ip,
-				name: name.trim() || "Desconhecido",
-				text,
-				timestamp,
-				replys: []
-			}
-			
-			findPost.comments.push(comment)
-			
-			await Post.updateOne({
-				id: postId
-			}, findPost)
-			
-			return res.redirect(301, "/post/" + postId)
-			
-		} else {
-			res.status(422).json({
-				status: "error", msg: "post not found"
-			})
-		}
+      await Post.updateOne(
+        {
+          id: postId,
+        },
+        findPost
+      );
 
-	} catch(e) {
-		res.status(500).json({
-			status: "error", msg: e.name
-		})
-	}
-
+      return res.redirect(301, "/post/" + postId);
+    } else {
+      res.status(422).json({
+        status: "error",
+        msg: "post not found",
+      });
+    }
+  } catch (e) {
+    res.status(500).json({
+      status: "error",
+      msg: e.name,
+    });
+  }
 }
-export default connectDB(handler)
+export default connectDB(handler);

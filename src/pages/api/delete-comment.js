@@ -1,46 +1,57 @@
-import {
-	Post,
-	connectDB
-} from "../../../lib/mongodb"
+import { Post, connectDB } from "../../../lib/mongodb";
 
 async function handler(req, res) {
+  try {
+    // validation: is admin
+    {
+      const currentIp =
+        req.headers["x-forwarded-for"] || req.socket.remoteAddress;
 
-	try {
-		
-		if (!process.env.ENABLE_POSTS) return res.status(500).json({ status: "error", msg: "acess denied" })
+      const adminIp = process.env?.BLOG_ADMIN.trim();
 
-		if (req.method !== "DELETE") return res.status(405).json({
-			status: "error", msg: "method not allowed"
-		})
+      if (!process.env?.BLOG_ADMIN) {
+        return res
+          .status(500)
+          .json({ status: "error", msg: "post not habilited" });
+      }
+      if (adminIp !== currentIp) {
+        return res.status(500).json({ status: "error", msg: "acess denied" });
+      }
+    }
 
-		let {
-			postId,
-			commentId
-		} = req.query
+    if (req.method !== "DELETE")
+      return res.status(405).json({
+        status: "error",
+        msg: "method not allowed",
+      });
 
-		if (!postId || !commentId) return res.status(400).json({
-			status: "error", msg: "miss postId or commentId parameters"
-		})
-		if (postId.includes("http")) postId = postId.split("post/")[1]
+    let { postId, commentId } = req.query;
 
-		let findPost = await Post.findOne({
-			id: postId
-		})
+    if (!postId || !commentId)
+      return res.status(400).json({
+        status: "error",
+        msg: "miss postId or commentId parameters",
+      });
+    if (postId.includes("http")) postId = postId.split("post/")[1];
 
-		if (!findPost) return res.status(422).json({status: "error", msg: "post not found"})
-			
-		findPost.comments.map((comment, i)=>{
-			if (comment.id == commentId) findPost.comments.splice(i, 1)
-		})
-			
-		await Post.updateOne({ id: postId }, findPost)
-		res.status(200).json({ status: "ok", msg: "comment as be deleted" })
+    let findPost = await Post.findOne({
+      id: postId,
+    });
 
-	} catch(e) {
-		res.status(500).json({
-			status: "error", msg: e.name
-		})
-	}
+    if (!findPost)
+      return res.status(422).json({ status: "error", msg: "post not found" });
 
+    findPost.comments.map((comment, i) => {
+      if (comment.id == commentId) findPost.comments.splice(i, 1);
+    });
+
+    await Post.updateOne({ id: postId }, findPost);
+    res.status(200).json({ status: "ok", msg: "comment as be deleted" });
+  } catch (e) {
+    res.status(500).json({
+      status: "error",
+      msg: e.name,
+    });
+  }
 }
-export default connectDB(handler)
+export default connectDB(handler);
