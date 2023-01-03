@@ -26,5 +26,21 @@
     "eslint": "^8.30.0",
     "eslint-plugin-react": "^7.31.11",
     "prettier": "2.8.1"
-  }
+  },
+  "description": "<a href=\"https://blogundeadcat.vercel.app\">Undead Cat</a>",
+  "main": "next.config.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devmaggioni/blog-nextjs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devmaggioni/blog-nextjs/issues"
+  },
+  "homepage": "https://github.com/devmaggioni/blog-nextjs#readme"
 }
