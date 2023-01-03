@@ -38,13 +38,15 @@ export default class MyDocument extends Document {
     return (
       <Html lang="pt-BR">
         <Head>
-          <Script
+          {/*<Script
             id="Adsense-id"
             data-ad-client={process.env.BLOG_ADSENSE}
             async="true"
             strategy="beforeInteractive"
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-          />
+          />*/}
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8954292946873553"
+     crossorigin="anonymous"></script>
           <Analytics />
         </Head>
         <body>

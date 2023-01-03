@@ -12,7 +12,7 @@ export const FlexContainer = styled.div`
   }
   min-height: 80vh;
   padding-top: 5rem;
-  padding-bottom: 30%;
+  padding-bottom: 10rem;
 
   h1 {
     font-size: 2rem;
